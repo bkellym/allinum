@@ -1,0 +1,195 @@
+.menu{
+	background-color: #454;
+    min-height: 100vh;
+}
+
+.tela{
+	background-color: #323;
+	min-height: 100vh;
+}
+
+.canvas{
+	border-style: solid;
+	border-width: 2px;
+	border-color:#FFF;
+	color:#FFF;
+
+	border-radius: 10%;
+	height: 300px;
+
+	margin:1%;
+}
+
+.botao-menu{
+	width: 125%;
+	height: 12%;
+	margin-left: -12%;
+	margin-top: 15%;
+
+	text-align: center;
+	padding: 0px;
+	font-size: 70%;
+
+	background: #888;
+	border-radius: 20%;
+}
+
+.botao-config{
+	margin-left: none;
+	margin-top:350%;
+}
+
+.botao-novo-projeto{
+	width: 100px;
+	height: 100px;
+	background: #686;
+	border-radius: 100%;
+
+	font-size:50px;
+	padding: 0px;
+
+	text-align: center;
+
+	position: absolute;
+	bottom:2%;
+	right:2%;
+}
+
+.botao-requisitos{
+	position: absolute;
+	right: 2%;
+	bottom:2%;
+}
+
+.modal-estilo{
+	background-color: #323;
+	color: #FFF;
+}
+
+div.projeto{
+	background-color: #565;
+	width: 100%;
+	height: 100px;
+	margin-top: 1%;
+	border-radius: 10px;
+}
+
+div.projeto-linha1{
+	display: block;
+}
+
+div.line{
+	background-color:#FFF;
+	height: 3px;
+	width: 100%;
+}
+
+div.sub-line{
+	background-color:#FFF;
+	height: 2px;
+	width: 96%;
+	margin-left:2%;
+}
+
+div.sub-line-2{
+	background-color:#FFF;
+	height: 2px;
+	width: 90%;
+	margin-left:5%;
+}
+
+div.background-tarefas{
+	width: 96%;
+	height: 300px;
+
+	background-color:#FFF;
+	
+	margin-left: 2%;
+	margin-top:2%;
+	
+	border-radius: 5%;
+}
+
+div.background-tarefas-2{
+	width: 96%;
+	height: 200px;
+
+	background-color:#FFF;
+	
+	margin-left: 2%;
+	margin-top:2%;
+	
+	border-radius: 5%;
+}
+
+
+div.geral{
+	width: 96%;
+	height: 150px;
+
+	background-color:#FFF;
+	
+	margin-left: 2%;
+	margin-top:2%;
+	
+	border-radius: 5%;
+}
+
+div.grafico{
+	width: 150px;
+	height: 150px;
+
+	background-color:#FFF;
+	
+	margin-left: 30%;
+	margin-top:2%;
+	
+	border-radius: 100%;
+}
+
+div.grafico-2{
+	width: 150px;
+	height: 150px;
+
+	background-color:#FFF;
+	
+	margin-left: 30%;
+	margin-top:15%;
+	
+	border-radius: 100%;
+}
+
+b.projeto{
+	margin-right: 1%;
+	font-size: 25px;
+}
+
+p.projeto{
+	margin-top: 1%;
+	margin-left: 1%;
+
+	font-size: 15px;
+	color: 555;
+}
+
+p.descricao{
+	font-size: 13px;
+
+	margin-left: 1%;
+}
+
+h1.titulo{
+	color:#FFF;
+}
+
+h3.titulo{
+	color:#FFF;
+	margin-left:2%;
+	margin-top: 2%;
+}
+
+h3.titulo-2{
+	color:#FFF;
+	margin-left:5%;
+	margin-top: 2%;
+}

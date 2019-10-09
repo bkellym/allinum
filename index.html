@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Tags de Configuração -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/style-pages.css"/>
+
+    <title> .: Allinum :. </title>
+  </head>
+  <body>
+
+    <div class = "container">
+      <div class = "row">
+        <div class = "col-1 menu">
+
+          <a class = "btn btn-secondary botao-menu" href = "index.html"> Home </a>
+            
+          <a class = "btn btn-secondary botao-menu" href = "tarefas.html"> Atividades </a>
+
+          <a class = "btn btn-secondary botao-menu"> Notificações </a>
+
+          <a class = "btn btn-secondary botao-menu"> Pessoas </a>
+
+          <a class = "btn btn-secondary botao-menu botao-config"> Configuração </a>
+
+        </div>
+
+        <div class = "col-11 tela">
+
+          <div class = "projeto">
+            <div class = "projeto-linha1">
+              <p class = "projeto"> <b class = "projeto"> Título Projeto 1 </b>
+                                                               Líder Jorgi </p>
+              <p class = "descricao"> Alguma descrição esclarecedora sobre o projeto que ninguém liga muito </p>
+            </div>
+          </div>
+
+          <div class = "projeto"> 
+            <p class = "projeto"> <b class = "projeto"> Título Projeto 2 </b>
+                                                         Líder Big Chico </p>
+            <p class = "descricao"> Alguma descrição esclarecedora sobre o projeto </p>
+          </div>
+
+          <button type="button" class = "btn btn-success botao-novo-projeto" data-toggle="modal" data-target="#modalExemplo"> + </button>
+          
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content modal-estilo">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Criar Novo Projeto</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <div class="modal-body">
+
+            <form>
+
+              <div class="form-group">
+                <label for="InputTitulo">Título do Projeto</label>
+                <input type="text" class="form-control" id="InputTitulo" aria-describedby="emailHelp" placeholder="Seu título">
+              </div>
+
+              <div class="form-group">
+                <label for="InputDescricao">Descrição</label>
+                <textarea class="form-control" id="InputDescricao" rows="3"></textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="InputMenbros">Membros</label>
+                <input type="text" class="form-control" id="InputMenbros" placeholder="Adicione membros">
+              </div>
+
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="opcao1">
+                <label class="form-check-label" for="inlineCheckbox1">Hardware</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="opcao2">
+                <label class="form-check-label" for="inlineCheckbox2">Software</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="opcao3">
+                <label class="form-check-label" for="inlineCheckbox3">Design</label>
+              </div>
+
+            </form>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            <a type="button" class="btn btn-primary" href = "canvas.html">Salvar mudanças</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bibliotecas de JavaScript: jQuery, Popper.js, Bootstrap JS -->
+    <script src="plugins/jquery/jquery-3.4.1.slim.min.js"></script>
+    <script src="plugins/popper/popper.min.js" ></script>
+    <script src="plugins/bootstrap/js/bootstrap.min.js"></script>
+  </body>
+</html>
