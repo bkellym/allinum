@@ -1,0 +1,67 @@
+{% extends 'baseTemplate.html' %}
+
+<!-- Title da Página -->
+{% block title %}
+    Cadastro
+{% endblock title %}
+
+<!-- Titulo que aparece no SubMenu da Página -->
+{% block titulo %}
+    Cadastro de Usuário
+{% endblock titulo %}
+
+<!-- Cor de  Fundo da Página (Hexadecimal) -->
+{% block backgroundColor %}
+    #64FFDA
+{% endblock backgroundColor %}
+
+<!-- Cor do menu da Página (Classe Materialize) -->
+{% block menuColor %}
+    light-blue darken-2
+{% endblock menuColor %}
+
+<!-- Cor do sub menu que contém o título da Página (Hexadecimal) -->
+{% block subMenuColor %}
+    #01579B
+{% endblock subMenuColor %}
+
+<!-- Cor da Grid que contém o conteúdo da Página (Hexadecimal) -->
+{% block gridColor %}
+    #FFFFFF
+{% endblock gridColor %}
+
+<!-- Conteúdo da Página (Hexadecimal) -->
+{% block conteudo %}
+    <div class = "row" style="margin-top: 20px;">
+        <div class = "col s2">	</div>
+
+        <form class="col s8" method="POST"> {% csrf_token %}
+            <label for="username"> Nome Completo: </label>
+            <input id="username" name="username" type="text" class="validate">
+
+            <label for="email"> Email: </label>
+            <input id="email" name="email" type="email" class="validate">
+
+            <label for="password"> Senha </label>
+            <input value="password" id="password" name="password" type="password" class="validate">
+
+            <label> Tipo de usuário </label>
+            <select name = "tipo_usuario">
+                <option value = "" disabled selected> Escolha uma opção </option>
+                <option value = "adminstrador"> Adminstrador </option>
+                <option value = "usuario"> Usuário </option>
+            </select>
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <button class="btn waves-effect waves-light" type="submit" name="action">
+                        Cadastrar <i class="material-icons right">send</i>
+                    </button>
+                </div>
+            </div>
+
+        </form>
+
+        <div class = "col s2">	</div>
+    </div>
+{% endblock conteudo %}
