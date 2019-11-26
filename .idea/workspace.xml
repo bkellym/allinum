@@ -3,12 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="16b2e94c-a022-4a39-bf31-6c9a961aad61" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/icons/configuracoes.png" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/static/usuarios/icons/configuracoes.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/icons/notificacoes.png" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/static/usuarios/icons/notificacoes.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/icons/projetos.png" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/static/usuarios/icons/projetos.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/icons/sair.png" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/static/usuarios/icons/sair.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/icons/tarefas.png" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/static/usuarios/icons/tarefas.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/baseTemplate.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/baseTemplate.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppAllinum/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/AppAllinum/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/baseLogin.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/baseLogin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuarios/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuarios/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -101,7 +101,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1574723034950</updated>
-      <workItem from="1574723057855" duration="16303000" />
+      <workItem from="1574723057855" duration="18251000" />
     </task>
     <servers />
   </component>
