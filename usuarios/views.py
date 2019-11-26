@@ -1,7 +1,7 @@
 from django.conf import settings
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render, redirect
 
 
@@ -22,6 +22,23 @@ def usuario_cadastro(request, template_name="usuario_cadastro.html"):
         return redirect('/usuario_lista/')
 
     return render(request, template_name, {})
+
+def usuario_delete(request, pk, template_name='usuario_delete.html'):
+    user = request.user
+
+    try:
+        usuario = User.objects.get(pk=pk)
+    except:
+        return HttpResponse("Usuário não encontrado!")
+
+    if user.has_perm('user.delete_user'):
+        if request.method == "POST":
+            usuario.delete()
+            return redirect('usuario_lista')
+    else:
+        return HttpResponse("Permissão Negada!")
+
+    return render(request, template_name, {'usuario':usuario})
 
 def usuario_lista(request, template_name="usuario_lista.html"):
     usuarios = User.objects.all()

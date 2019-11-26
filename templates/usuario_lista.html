@@ -51,6 +51,10 @@
                     <tr>
                         <td> {{ usuario.username }} </td>
                         <td> {{ usuario.email}} </td>
+                        <td> <a href="{% url 'usuario_delete' pk=usuario.pk %}">
+                                <i class="material-icons">delete</i>
+                             </a>
+                        </td>
                     </tr>
                 {% endfor %}
                 </tbody>
