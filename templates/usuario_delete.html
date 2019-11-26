@@ -1,0 +1,48 @@
+{% extends 'baseTemplate.html' %}
+
+<!-- Title da Página -->
+{% block title %}
+    Cadastro
+{% endblock title %}
+
+<!-- Titulo que aparece no SubMenu da Página -->
+{% block titulo %}
+    Cadastro de Usuário
+{% endblock titulo %}
+
+<!-- Cor de  Fundo da Página (Hexadecimal) -->
+{% block backgroundColor %}
+    #64FFDA
+{% endblock backgroundColor %}
+
+<!-- Cor do menu da Página (Classe Materialize) -->
+{% block menuColor %}
+    light-blue darken-2
+{% endblock menuColor %}
+
+<!-- Cor do sub menu que contém o título da Página (Hexadecimal) -->
+{% block subMenuColor %}
+    #01579B
+{% endblock subMenuColor %}
+
+<!-- Cor da Grid que contém o conteúdo da Página (Hexadecimal) -->
+{% block gridColor %}
+    #FFFFFF
+{% endblock gridColor %}
+
+<!-- Conteúdo da Página (Hexadecimal) -->
+{% block conteudo %}
+    <div class="row">
+        <div class = "col s2">	</div>
+
+        <form class="col s8" method="POST"> {% csrf_token %}
+            <h4> Tem certeza que deseja excluir o usuário "{{ usuario.username }}"?</h4>
+            <br>
+            <button class="btn waves-effect waves-light red darken-2" type="submit">
+                Remover <i class="material-icons right">clear</i>
+            </button>
+        </form>
+
+        <div class = "col s2">	</div>
+    </div>
+{% endblock conteudo %}
