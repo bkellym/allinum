@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="16b2e94c-a022-4a39-bf31-6c9a961aad61" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/kelly.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/kelly.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/baseTemplate.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/baseTemplate.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/usuario_cadastro.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/usuario_cadastro.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/usuario_lista.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/usuario_lista.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/usuarios/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/usuarios/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/views.py" afterDir="false" />
@@ -100,7 +101,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1574723034950</updated>
-      <workItem from="1574723057855" duration="22190000" />
+      <workItem from="1574723057855" duration="23668000" />
     </task>
     <servers />
   </component>

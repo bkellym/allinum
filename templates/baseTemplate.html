@@ -21,7 +21,7 @@
 
                     <li style="margin-right: 10px;"> Olá, Admin </li>
 
-			      	<li><a href="" style="height: 100%; width: 120px;">
+			      	<li><a href=" {% url 'usuario_lista' %} " style="height: 100%; width: 120px;">
 			      		<img src = "{% static 'usuarios/icons/projetos.png' %}" style = "width: 40%; margin-left: 30%; margin-top: 20%;">
 			      	</a></li>
 
@@ -37,7 +37,7 @@
 			        	<img src = "{% static 'usuarios/icons/notificacoes.png' %}" style = "width: 40%; margin-left: 30%; margin-top: 20%;">
 			        </a></li>
 
-			        <li><a href="" style="height: 100%; width: 120px;">
+			        <li><a href="{% url 'logout' %}" style="height: 100%; width: 120px;">
 			        	<img src = "{% static 'usuarios/icons/sair.png' %}" style = "width: 40%; margin-left: 30%; margin-top: 20%;">
 			        </a></li>
 
