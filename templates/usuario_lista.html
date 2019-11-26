@@ -41,7 +41,8 @@
                 <thead>
                     <tr>
                         <th> Nome </th>
-                        <th> Email </th>
+                        <th> Usuario </th>
+                        <th> Matricula </th>
                         <th> Ação </th>
                     </tr>
                 </thead>
@@ -49,8 +50,9 @@
                 <tbody>
                 {% for usuario in lista %}
                     <tr>
-                        <td> {{ usuario.username }} </td>
-                        <td> {{ usuario.email}} </td>
+                        <td> {{ usuario.first_name }} </td>
+                        <td> {{ usuario.username}} </td>
+                        <td> {{ usuario.profile.matricula }} </td>
                         <td> <a href="{% url 'usuario_delete' pk=usuario.pk %}">
                                 <i class="material-icons">delete</i>
                              </a>

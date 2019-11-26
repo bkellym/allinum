@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render, redirect
+from usuarios.models import *
 
 
 # Create your views here.
@@ -14,17 +15,40 @@ def usuario_cadastro(request, template_name="usuario_cadastro.html"):
 
     if user.is_staff:
         if request.method == "POST":
-            username = request.POST['username']
-            email = request.POST['email']
-            password = request.POST['password']
+
+            #Recebendo valores do formulário
+            nome = request.POST['nome']
+            sobrenome = request._post['sobrenome']
+            usuario = request.POST['usuario']
+            matricula = request.POST['matricula']
+            senha = request.POST['senha']
+            confirma_senha = request.POST['confirma_senha']
             tipo = request.POST['tipo_usuario']
 
-            user = User.objects.create_user(username, email, password)
+            #Tratamento
+            usuario = usuario.lower()
+
+            #Validações
+            if senha != confirma_senha:
+                return HttpResponse("Senhas não combinam!")
+
+            #Cadastro
+            try:
+                user = User.objects.create_user(first_name=nome, last_name=sobrenome, username=usuario, password=senha)
+            except:
+                return HttpResponse("Usuário já cadastrado!")
+
+            user.profile.matricula = matricula
+            user.profile.tema = 'C'
+            user.save()
+
+            #Determinando adminstradores
             if tipo == "administrador":
                 user.is_staff = True
                 user.save()
 
             return redirect('/usuario_lista/')
+
     else:
         return HttpResponse("Permissão Negada!")
 
@@ -62,6 +86,9 @@ def efetuar_login(request, template_name="login.html"):
     if request.method == "POST":
         username = request.POST['username']
         password = request.POST['password']
+
+        username = username.lower()
+
         user = authenticate(username=username, password=password)
 
         if user is not None:
