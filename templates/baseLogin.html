@@ -1,0 +1,39 @@
+<html lang="pt-br">
+	<head>
+		<meta charset="utf-8"/>
+		<meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
+
+	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+		<title> {% block title %} {% endblock %} </title>
+
+	</head>
+	<body style = 'background: {% block backgroundColor %} {% endblock %};'>
+		<div class="row">
+
+			<div class="col s4"> </div>
+
+			<div class="col s4" style = 'background: {% block quadroBlock %} {% endblock %}; height: 80%; margin-top: 5%; border-radius: 20px;'>
+
+				<div class="row">
+
+		    		<div class="input-field col s3"></div>
+		    		<div class="input-field col s6">
+		    			<img src="{% static 'usuarios/logos/Logo_H_C.png' %}" style="width: 100%";>
+		    		</div>
+		    		<div class="input-field col s3"></div>
+
+				</div>
+
+                <div class="row">
+                    {% block conteudo %} {% endblock %}
+                </div>
+
+			</div>
+
+			<div class="col s4"> </div>
+		</div>
+	</body>
+</html>
