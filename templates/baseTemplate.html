@@ -14,28 +14,31 @@
 	<body style = 'background: {% block backgroundColor %} {% endblock %};'>
 		<nav>
 		    <div class="nav-wrapper {% block menuColor %} {% endblock %}">
-		      	<a href="" class="brand-logo" style="margin-left: 40px; color:#FFFFFF;"> Allinum </a>
+		      	<a href="#" style="margin-left: 40px; color:#FFFFFF;"> <img src = "{% static 'usuarios/logos/Logo_V_C.png' %}"
+	      		style = "height: 40px; margin-top: 1%;"/> </a>
 
 		      	<ul id="nav-mobile" class="right hide-on-med-and-down">
 
+                    <li style="margin-right: 10px;"> Olá, Admin </li>
+
 			      	<li><a href="" style="height: 100%; width: 120px;">
-			      		<img src = "../static/icons/projetos.png" style = "width: 40%; margin-left: 30%; margin-top: 20%;">
+			      		<img src = "{% static 'usuarios/icons/projetos.png' %}" style = "width: 40%; margin-left: 30%; margin-top: 20%;">
 			      	</a></li>
 
 			      	<li><a href="" style="height: 100%; width: 120px;">
-			      		<img src = "{% static 'icons/tarefas.png' %}" style = "width: 40%; margin-left: 30%; margin-top: 20%;">
+			      		<img src = "{% static 'usuarios/icons/tarefas.png' %}" style = "width: 40%; margin-left: 30%; margin-top: 20%;">
 			      	</a></li>
 
 			        <li><a href="" style="height: 100%; width: 120px;">
-			      		<img src = "{% static 'icons/configuracoes.png' %}" style = "width: 40%; margin-left: 30%; margin-top: 20%;">
+			      		<img src = "{% static 'usuarios/icons/configuracoes.png' %}" style = "width: 40%; margin-left: 30%; margin-top: 20%;">
 			      	</a></li>
 
 			        <li><a href="" style="height: 100%; width: 120px;">
-			        	<img src = "{% static 'icons/notificacoes.png' %}" style = "width: 40%; margin-left: 30%; margin-top: 20%;">
+			        	<img src = "{% static 'usuarios/icons/notificacoes.png' %}" style = "width: 40%; margin-left: 30%; margin-top: 20%;">
 			        </a></li>
 
 			        <li><a href="" style="height: 100%; width: 120px;">
-			        	<img src = "{% static 'icons/sair.png' %}" style = "width: 40%; margin-left: 30%; margin-top: 20%;">
+			        	<img src = "{% static 'usuarios/icons/sair.png' %}" style = "width: 40%; margin-left: 30%; margin-top: 20%;">
 			        </a></li>
 
 		      	</ul>
