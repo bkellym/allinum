@@ -1,0 +1,66 @@
+{% extends 'baseTemplate.html' %}
+
+<!-- Title da Página -->
+{% block title %}
+    Usuários
+{% endblock title %}
+
+<!-- Titulo que aparece no SubMenu da Página -->
+{% block titulo %}
+    Lista de Usuário
+{% endblock titulo %}
+
+<!-- Cor de  Fundo da Página (Hexadecimal) -->
+{% block backgroundColor %}
+    #64FFDA
+{% endblock backgroundColor %}
+
+<!-- Cor do menu da Página (Classe Materialize) -->
+{% block menuColor %}
+    light-blue darken-2
+{% endblock menuColor %}
+
+<!-- Cor do sub menu que contém o título da Página (Hexadecimal) -->
+{% block subMenuColor %}
+    #01579B
+{% endblock subMenuColor %}
+
+<!-- Cor da Grid que contém o conteúdo da Página (Hexadecimal) -->
+{% block gridColor %}
+    #FFFFFF
+{% endblock gridColor %}
+
+<!-- Conteúdo da Página (Hexadecimal) -->
+{% block conteudo %}
+    <div class = "row" style="margin-top: 20px;">
+        <div class = "col s1">	</div>
+
+        <div class = "col s10">
+
+            <table>
+                <thead>
+                    <tr>
+                        <th> Nome </th>
+                        <th> Email </th>
+                        <th> Ação </th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                {% for usuario in lista %}
+                    <tr>
+                        <td> {{ usuario.username }} </td>
+                        <td> {{ usuario.email}} </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <div class = "col s1">	</div>
+    </div>
+{% endblock conteudo %}
+
+
+
+

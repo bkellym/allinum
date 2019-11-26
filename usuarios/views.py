@@ -15,6 +15,11 @@ def usuario_cadastro(request, template_name="usuario_cadastro.html"):
             user.is_staff = True
             user.save()
 
-        return redirect('')
+        return redirect('/usuario_lista/')
 
     return render(request, template_name, {})
+
+def usuario_lista(request, template_name="usuario_lista.html"):
+    usuarios = User.objects.all()
+    usuario = {'lista': usuarios}
+    return render(request, template_name, usuario)
