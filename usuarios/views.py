@@ -1,4 +1,5 @@
 from django.conf import settings
+from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
@@ -30,13 +31,15 @@ def usuario_cadastro(request, template_name="usuario_cadastro.html"):
 
             #Validações
             if senha != confirma_senha:
-                return HttpResponse("Senhas não combinam!")
+                messages.error(request, "Senhas não combinam!")
+                return redirect('/usuario_lista/')
 
             #Cadastro
             try:
                 user = User.objects.create_user(first_name=nome, last_name=sobrenome, username=usuario, password=senha)
             except:
-                return HttpResponse("Usuário já cadastrado!")
+                messages.error(request, "Usuário já cadastrado!")
+                return redirect('/usuario_lista/')
 
             user.profile.matricula = matricula
             user.profile.tema = 'C'
@@ -50,7 +53,8 @@ def usuario_cadastro(request, template_name="usuario_cadastro.html"):
             return redirect('/usuario_lista/')
 
     else:
-        return HttpResponse("Permissão Negada!")
+        messages.error(request, "Permissão Negada!")
+        return redirect('/usuario_lista/')
 
     return render(request, template_name, {})
 
@@ -58,18 +62,19 @@ def usuario_cadastro(request, template_name="usuario_cadastro.html"):
 @login_required
 def usuario_delete(request, pk, template_name='usuario_delete.html'):
     user = request.user
-
     try:
         usuario = User.objects.get(pk=pk)
     except:
-        return HttpResponse("Usuário não encontrado!")
+        messages.error(request, "Usuário não encontrado!")
+        return redirect('/usuario_lista/')
 
     if user.is_superuser:
         if request.method == "POST":
             usuario.delete()
             return redirect('usuario_lista')
     else:
-        return HttpResponse("Permissão Negada!")
+        messages.error(request, "Permissão Negada!")
+        return redirect('/usuario_lista/')
 
     return render(request, template_name, {'usuario':usuario})
 
@@ -96,15 +101,14 @@ def efetuar_login(request, template_name="login.html"):
     if request.method == "POST":
         username = request.POST['username']
         password = request.POST['password']
-
         username = username.lower()
 
         user = authenticate(username=username, password=password)
-
         if user is not None:
             login(request, user)
             return HttpResponseRedirect(next)
         else:
+            messages.error(request, 'Usuário ou senha incorretos.')
             return HttpResponseRedirect(settings.LOGIN_URL)
 
     return render(request, template_name, {'redirect_to': next})

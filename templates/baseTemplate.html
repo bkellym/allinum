@@ -92,6 +92,14 @@
                 $('select').material_select();
             });
 
+            {% if messages %}
+                {% for message in messages %}
+                    $(document).ready(function() {
+                        Materialize.toast('{{ message }}', 4000)
+                    });
+                {% endfor %}
+            {% endif %}
+
           </script>
 	</body>
 </html>
