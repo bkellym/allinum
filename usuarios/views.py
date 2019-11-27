@@ -81,6 +81,16 @@ def usuario_lista(request, template_name="usuario_lista.html"):
     return render(request, template_name, usuario)
 
 
+@login_required
+def usuario_configuracao(request, template_name='usuario_configuracao.html'):
+    if request.method == "POST":
+        usuario = request.user
+        tema = request.POST['tema']
+        usuario.profile.tema = tema
+        usuario.save()
+    return render(request, template_name)
+
+
 def efetuar_login(request, template_name="login.html"):
     next = request.GET.get('next', '/usuario_lista/')
     if request.method == "POST":

@@ -1,0 +1,74 @@
+{% extends 'baseTemplate.html' %}
+
+<!-- Title da Página -->
+{% block title %}
+    Allinum .:. Configurações
+{% endblock title %}
+
+<!-- Titulo que aparece no SubMenu da Página -->
+{% block titulo %}
+    Configurações
+{% endblock titulo %}
+
+<!-- Conteúdo da Página (Hexadecimal) -->
+{% block conteudo %}
+    <div class = "row {% if request.user.profile.tema == 'N' %} light-blue-text text-lighten-5 {% endif %}" style="margin-top: 20px;">
+        <div class = "col s2">	</div>
+
+        <form class="col s8" method="POST"> {% csrf_token %}
+
+            <h5> Configurações do Usuário </h5>
+
+            <p>
+                <label>
+                    <input class="with-gap" name="tema" value="C" type="radio" {% if request.user.profile.tema == 'C' %} checked {% endif %} />
+                    <span> Modo Clássico </span>
+                </label>
+            </p>
+
+            <p>
+                <label>
+                    <input class="with-gap" name="tema" value="N" type="radio" {% if request.user.profile.tema == 'N' %} checked {% endif %}/>
+                    <span> Modo Noturno </span>
+                </label>
+            </p>
+
+            <p>
+                <label>
+                    <input class="with-gap" name="tema" value="C" type="radio" disabled/>
+                    <span> Modo Alto Contraste </span>
+                </label>
+            </p>
+
+            <p>
+              <label>
+                <input type="checkbox" name="fontes_grandes" class="filled-in" disabled/>
+                <span> Fontes Grandes </span>
+              </label>
+            </p>
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <button class="btn waves-effect waves-light" type="submit">
+                        Confirmar
+                    </button>
+                </div>
+            </div>
+
+        </form>
+
+        <div class = "col s2">	</div>
+    </div>
+    <div class = "row {% if request.user.profile.tema == 'N' %} light-blue-text text-lighten-5 {% endif %}">
+        <div class = "col s2">	</div>
+
+        <div class="col s8">
+
+            <h5> Configurações do Adminstrador </h5>
+
+            <a href="{% url 'usuario_lista' %}"> Adicionar ou Remover usuários  </a>
+        </div>
+
+        <div class = "col s2">	</div>
+    </div>
+{% endblock conteudo %}
