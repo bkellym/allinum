@@ -1,8 +1,11 @@
+import datetime
+
 from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from django.forms import ModelForm
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render, redirect
 from usuarios.models import *
@@ -127,6 +130,10 @@ def usuario_editar(request, pk, template_name='usuario_editar.html'):
             if tipo == "administrador":
                 usuario.is_staff = True
                 usuario.save()
+            else:
+                usuario.is_staff = False
+                usuario.save()
+
             return redirect('/usuario_lista/')
     else:
         messages.error(request, "Permissão Negada!")
@@ -156,21 +163,28 @@ def usuario_lista(request, template_name="usuario_lista.html"):
         return redirect('/projeto_lista/')
 
 
+class ProjetoForm(ModelForm):
+    class Meta:
+        model = Projeto
+        fields = ['titulo', 'descricao', 'membros', 'lider']
+
+
 @login_required
 def projeto_cadastro(request, template_name="projeto_cadastro.html"):
+    # Busca usuário logado
     user = request.user
-
-    if request.method == "POST":
-        # Recebendo valores do formulário
-        titulo = request.POST['titulo']
-        descricao = request._post['descricao']
-
-        # Cadastrando no Banco de Dados
-        Projeto.objects.create(titulo=titulo, descricao=descricao, lider=user)
+    membro = Membro.objects.all()
+    # Recebe formulário e transforma em um objeto
+    projeto = ProjetoForm(request.POST or None)
+    if projeto.is_valid():
+        projeto.lider = user # Define usuário logado como líder do projeto
+        projeto.ult_alt = user.username # Salva ultima pessoa que alterou o projeto
+        projeto.data_ult_alt = datetime.date.today()
+        projeto.save()
 
         # Redirecionamento
         return redirect('/projeto_lista/')
-    return render(request, template_name, {})
+    return render(request, template_name, {'form': projeto, 'membro_list':membro})
 
 @login_required
 def projeto_delete(request, pk, template_name='projeto_delete.html'):
@@ -205,6 +219,14 @@ def projeto_editar(request, pk, template_name="projeto_editar.html"):
         # Recebendo valores do formulário
         titulo = request.POST['titulo']
         descricao = request._post['descricao']
+
+        if titulo is None or titulo == "":
+            messages.error(request, "Título não pode ser removido!")
+            return redirect('/projeto_cadastro/')
+
+        if descricao is None or descricao == "":
+            messages.error(request, "Descrição não pode ser removida!")
+            return redirect('/projeto_cadastro/')
 
         projeto.titulo = titulo
         projeto.descricao = descricao

@@ -18,23 +18,38 @@
         <form class="col s8" method="POST"> {% csrf_token %}
 
             <div class = "row">
-                <div class="col s12">
-                    <label for="titulo"> Titulo: </label>
-                    <input id="titulo" name="titulo" type="text" class="validate">
-                </div>
-            </div>
+				<div class="col s12">
+					<label for="id_titulo"> Titulo: </label>
+					<input name="titulo" cols="40" rows="10" maxlength="100" required id="id_titulo"/>
+				</div>
+			</div>
+
+			<div class = "row">
+				<div class="col s12">
+					<label for="id_descricao"> Descrição: </label>
+				</div>
+			</div>
+
+			<div class = "row">
+				<div class="col s12">
+					<textarea name="descricao" cols="40" rows="10" maxlength="400" required id="id_descricao"></textarea>
+				</div>
+			</div>
 
             <div class = "row">
-                <div class="col s12">
-                    <label for="descricao"> Descrição: </label>
-                </div>
-            </div>
+				<div class="col s12">
+					<label for="id_membros">Membros:</label>
 
-            <div class = "row">
-                <div class="col s12">
-                    <input id="descricao" name="descricao" type="textaria" class="validate" style="width:100%; height: 150px;">
-                </div>
-            </div>
+					<select name="membros" required id="id_membros" multiple>
+                        <option value=""> </option>
+					  	{% for membro in membro_list %}
+                            <option value="{{ membro.id }}"> {{ membro.user.username }} </option>
+                        {% endfor %}
+					</select>
+				</div>
+			</div>
+
+			<input type="hidden" name="lider" required id="id_lider" value="{{ request.user.pk }}">
 
             <div class="row">
                 <div class="input-field col s2">

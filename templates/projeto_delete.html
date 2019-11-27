@@ -18,7 +18,7 @@
         <form class="col s8" method="POST"> {% csrf_token %}
             <div class="row">
                 <div class="col s12">
-                    <h4> Tem certeza que deseja excluir o projeto "{{ projeto.titulo }}"?</h4>
+                    <h4 {% if request.user.profile.tema == "N" %}class="white-text" {% endif %}> Tem certeza que deseja excluir o projeto "{{ projeto.titulo }}"?</h4>
                 </div>
             </div>
             <div class="row">
