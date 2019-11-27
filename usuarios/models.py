@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.contrib.auth.models import User
 from django.db import models
 
@@ -24,5 +25,5 @@ def alter_user_profile(sender, instance, **kwargs):
 class Projeto(models.Model):
     titulo = models.TextField(max_length=100)
     descricao = models.TextField(max_length=400)
-    lider = models.TextField(max_length=50)
-    ult_alt = models.TextField(max_length=50)
+    lider = models.ForeignKey(User, on_delete=models.CASCADE)
+    ult_alt = models.TextField(max_length=100, null=True)

@@ -10,7 +10,7 @@ from usuarios.models import *
 
 # Create your views here.
 def efetuar_login(request, template_name="login.html"):
-    next = request.GET.get('next', '/usuario_lista/')
+    next = request.GET.get('next', '/projeto_lista/')
     if request.method == "POST":
         username = request.POST['username']
         password = request.POST['password']
@@ -138,3 +138,27 @@ def usuario_lista(request, template_name="usuario_lista.html"):
     usuarios = User.objects.all()
     usuario = {'lista': usuarios}
     return render(request, template_name, usuario)
+
+
+@login_required
+def projeto_cadastro(request, template_name="projeto_cadastro.html"):
+    user = request.user
+
+    if request.method == "POST":
+        # Recebendo valores do formulário
+        titulo = request.POST['titulo']
+        descricao = request._post['descricao']
+
+        # Cadastrando no Banco de Dados
+        Projeto.objects.create(titulo=titulo, descricao=descricao, lider=user)
+
+        # Redirecionamento
+        return redirect('/projeto_lista/')
+    return render(request, template_name, {})
+
+
+@login_required
+def projeto_lista(request, template_name="projeto_lista.html"):
+    projetos = Projeto.objects.all()
+    context = {"context": projetos}
+    return render(request, template_name, context)
