@@ -12,14 +12,20 @@ from usuarios.models import *
 def efetuar_login(request, template_name="login.html"):
     next = request.GET.get('next', '/projeto_lista/')
     if request.method == "POST":
+        # Recebendo valores do formulário
         username = request.POST['username']
         password = request.POST['password']
         username = username.lower()
 
+        # Autenticação do usuário
         user = authenticate(username=username, password=password)
+
+        # Se usuário foi retornado realiza o Login
         if user is not None:
             login(request, user)
             return HttpResponseRedirect(next)
+
+        # Se usuário não for encontrado, retorna erro
         else:
             messages.error(request, 'Usuário ou senha incorretos.')
             return HttpResponseRedirect(settings.LOGIN_URL)
@@ -39,7 +45,7 @@ def usuario_cadastro(request, template_name="usuario_cadastro.html"):
     if user.is_staff:
         if request.method == "POST":
 
-            #Recebendo valores do formulário
+            # Recebendo valores do formulário
             nome = request.POST['nome']
             sobrenome = request._post['sobrenome']
             usuario = request.POST['usuario']
@@ -48,15 +54,15 @@ def usuario_cadastro(request, template_name="usuario_cadastro.html"):
             confirma_senha = request.POST['confirma_senha']
             tipo = request.POST['tipo_usuario']
 
-            #Tratamento
+            # Tratamento
             usuario = usuario.lower()
 
-            #Validações
+            # Validações
             if senha != confirma_senha:
                 messages.error(request, "Senhas não combinam!")
                 return redirect('/usuario_lista/')
 
-            #Cadastro
+            # Cadastro
             try:
                 user = User.objects.create_user(first_name=nome, last_name=sobrenome, username=usuario, password=senha)
             except:
@@ -76,7 +82,7 @@ def usuario_cadastro(request, template_name="usuario_cadastro.html"):
 
     else:
         messages.error(request, "Permissão Negada!")
-        return redirect('/usuario_lista/')
+        return redirect('/projeto_lista/')
 
     return render(request, template_name, {})
 
@@ -96,29 +102,35 @@ def usuario_delete(request, pk, template_name='usuario_delete.html'):
             return redirect('usuario_lista')
     else:
         messages.error(request, "Permissão Negada!")
-        return redirect('/usuario_lista/')
+        return redirect('/projeto_lista/')
 
     return render(request, template_name, {'usuario':usuario})
 
 
 @login_required
 def usuario_editar(request, pk, template_name='usuario_editar.html'):
+    user = request.user
     usuario = User.objects.get(pk=pk)
-    if request.method=="POST":
-        # Recebendo valores do formulário
-        nome = request.POST['nome']
-        sobrenome = request._post['sobrenome']
-        matricula = request.POST['matricula']
-        tipo = request.POST['tipo_usuario']
 
-        usuario.first_name=nome
-        usuario.last_name=sobrenome
-        usuario.profile.matricula=matricula
+    if user.is_staff:
+        if request.method=="POST":
+            # Recebendo valores do formulário
+            nome = request.POST['nome']
+            sobrenome = request._post['sobrenome']
+            matricula = request.POST['matricula']
+            tipo = request.POST['tipo_usuario']
 
-        if tipo == "administrador":
-            usuario.is_staff = True
-            usuario.save()
-        return redirect('/usuario_lista/')
+            usuario.first_name=nome
+            usuario.last_name=sobrenome
+            usuario.profile.matricula=matricula
+
+            if tipo == "administrador":
+                usuario.is_staff = True
+                usuario.save()
+            return redirect('/usuario_lista/')
+    else:
+        messages.error(request, "Permissão Negada!")
+        return redirect('/projeto_lista/')
 
     return render(request, template_name, {'usuario': usuario})
 
@@ -135,9 +147,13 @@ def usuario_configuracao(request, template_name='usuario_configuracao.html'):
 
 @login_required
 def usuario_lista(request, template_name="usuario_lista.html"):
-    usuarios = User.objects.all()
-    usuario = {'lista': usuarios}
-    return render(request, template_name, usuario)
+    if request.user.is_staff:
+        usuarios = User.objects.all()
+        usuario = {'lista': usuarios}
+        return render(request, template_name, usuario)
+    else:
+        messages.error(request, "Permissão Negada!")
+        return redirect('/projeto_lista/')
 
 
 @login_required

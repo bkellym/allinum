@@ -59,6 +59,7 @@
 
         <div class = "col s2">	</div>
     </div>
+    {% if request.user.is_staff %}
     <div class = "row {% if request.user.profile.tema == 'N' %} light-blue-text text-lighten-5 {% endif %}">
         <div class = "col s2">	</div>
 
@@ -71,4 +72,5 @@
 
         <div class = "col s2">	</div>
     </div>
+    {% endif %}
 {% endblock conteudo %}
