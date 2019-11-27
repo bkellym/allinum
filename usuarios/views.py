@@ -64,7 +64,7 @@ def usuario_delete(request, pk, template_name='usuario_delete.html'):
     except:
         return HttpResponse("Usuário não encontrado!")
 
-    if user.has_perm('user.delete_user'):
+    if user.is_superuser:
         if request.method == "POST":
             usuario.delete()
             return redirect('usuario_lista')

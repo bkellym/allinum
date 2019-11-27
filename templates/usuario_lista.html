@@ -10,26 +10,6 @@
     Lista de Usuário
 {% endblock titulo %}
 
-<!-- Cor de  Fundo da Página (Hexadecimal) -->
-{% block backgroundColor %}
-    #64FFDA
-{% endblock backgroundColor %}
-
-<!-- Cor do menu da Página (Classe Materialize) -->
-{% block menuColor %}
-    light-blue darken-2
-{% endblock menuColor %}
-
-<!-- Cor do sub menu que contém o título da Página (Hexadecimal) -->
-{% block subMenuColor %}
-    #01579B
-{% endblock subMenuColor %}
-
-<!-- Cor da Grid que contém o conteúdo da Página (Hexadecimal) -->
-{% block gridColor %}
-    #FFFFFF
-{% endblock gridColor %}
-
 <!-- Conteúdo da Página (Hexadecimal) -->
 {% block conteudo %}
     <div class = "row" style="margin-top: 20px;">
@@ -37,13 +17,15 @@
 
         <div class = "col s10">
 
-            <table>
+            <table {% if request.user.profile.tema == 'N' %} class="light-blue-text text-lighten-5" {% endif %}>
                 <thead>
                     <tr>
                         <th> Nome </th>
                         <th> Usuario </th>
                         <th> Matricula </th>
+                        {% if request.user.is_superuser %}
                         <th> Ação </th>
+                        {% endif %}
                     </tr>
                 </thead>
 
@@ -53,10 +35,12 @@
                         <td> {{ usuario.first_name }} </td>
                         <td> {{ usuario.username}} </td>
                         <td> {{ usuario.profile.matricula }} </td>
+                        {% if request.user.is_superuser %}
                         <td> <a href="{% url 'usuario_delete' pk=usuario.pk %}">
                                 <i class="material-icons">delete</i>
                              </a>
                         </td>
+                        {% endif %}
                     </tr>
                 {% endfor %}
                 </tbody>
@@ -65,10 +49,11 @@
 
         <div class = "col s1">	</div>
     </div>
-
+    {% if request.user.is_staff %}
     <div style="position: absolute; bottom:50px; right: 50px;">
           <a class="btn-floating btn-large waves-effect waves-light light-blue darken-4" href = "{% url 'usuario_cadastro' %}"><i class="material-icons">add</i></a>
     </div>
+    {% endif %}
 {% endblock conteudo %}
 
 
