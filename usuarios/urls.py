@@ -8,6 +8,7 @@ urlpatterns = [
     url(r'^logout/$', efetuar_logout, name='logout'),
     url(r'^usuario_cadastro/$', usuario_cadastro, name='usuario_cadastro'),
     url(r'^usuario_delete/(?P<pk>[0-9]+)', usuario_delete, name='usuario_delete'),
+    url(r'^usuario_editar/(?P<pk>[0-9]+)', usuario_editar, name='usuario_editar'),
     url(r'^usuario_lista/$', usuario_lista, name='usuario_lista'),
     url(r'^usuario_configuracao/$', usuario_configuracao, name='usuario_configuracao')
 ]

@@ -4,8 +4,11 @@
     <list default="true" id="16b2e94c-a022-4a39-bf31-6c9a961aad61" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/baseLogin.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/baseLogin.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/baseTemplate.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/baseTemplate.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/usuario_cadastro.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/usuario_cadastro.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/usuario_delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/usuario_delete.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/usuario_lista.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/usuario_lista.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuarios/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuarios/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/usuarios/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -101,7 +104,7 @@
       <updated>1574723034950</updated>
       <workItem from="1574723057855" duration="40599000" />
       <workItem from="1574819270237" duration="1423000" />
-      <workItem from="1574821267180" duration="2981000" />
+      <workItem from="1574821267180" duration="6148000" />
     </task>
     <servers />
   </component>

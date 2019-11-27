@@ -20,3 +20,9 @@ def create_user_profile(sender, instance, created, **kwargs):
 @receiver(post_save, sender=User)
 def alter_user_profile(sender, instance, **kwargs):
     instance.profile.save()
+
+class Projeto(models.Model):
+    titulo = models.TextField(max_length=100)
+    descricao = models.TextField(max_length=400)
+    lider = models.TextField(max_length=50)
+    ult_alt = models.TextField(max_length=50)

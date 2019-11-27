@@ -36,9 +36,13 @@
                         <td> {{ usuario.username}} </td>
                         <td> {{ usuario.profile.matricula }} </td>
                         {% if request.user.is_superuser %}
-                        <td> <a href="{% url 'usuario_delete' pk=usuario.pk %}">
+                        <td>
+                            <a href="{% url 'usuario_delete' pk=usuario.pk %}">
                                 <i class="material-icons">delete</i>
-                             </a>
+                            </a>
+                            <a href="{% url 'usuario_editar' pk=usuario.pk %}">
+                                <i class="material-icons">create</i>
+                            </a>
                         </td>
                         {% endif %}
                     </tr>

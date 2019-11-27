@@ -9,6 +9,28 @@ from usuarios.models import *
 
 
 # Create your views here.
+def efetuar_login(request, template_name="login.html"):
+    next = request.GET.get('next', '/usuario_lista/')
+    if request.method == "POST":
+        username = request.POST['username']
+        password = request.POST['password']
+        username = username.lower()
+
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return HttpResponseRedirect(next)
+        else:
+            messages.error(request, 'Usuário ou senha incorretos.')
+            return HttpResponseRedirect(settings.LOGIN_URL)
+
+    return render(request, template_name, {'redirect_to': next})
+
+
+def efetuar_logout(request):
+    logout(request)
+    return HttpResponseRedirect(settings.LOGIN_URL)
+
 
 @login_required
 def usuario_cadastro(request, template_name="usuario_cadastro.html"):
@@ -80,10 +102,25 @@ def usuario_delete(request, pk, template_name='usuario_delete.html'):
 
 
 @login_required
-def usuario_lista(request, template_name="usuario_lista.html"):
-    usuarios = User.objects.all()
-    usuario = {'lista': usuarios}
-    return render(request, template_name, usuario)
+def usuario_editar(request, pk, template_name='usuario_editar.html'):
+    usuario = User.objects.get(pk=pk)
+    if request.method=="POST":
+        # Recebendo valores do formulário
+        nome = request.POST['nome']
+        sobrenome = request._post['sobrenome']
+        matricula = request.POST['matricula']
+        tipo = request.POST['tipo_usuario']
+
+        usuario.first_name=nome
+        usuario.last_name=sobrenome
+        usuario.profile.matricula=matricula
+
+        if tipo == "administrador":
+            usuario.is_staff = True
+            usuario.save()
+        return redirect('/usuario_lista/')
+
+    return render(request, template_name, {'usuario': usuario})
 
 
 @login_required
@@ -96,24 +133,8 @@ def usuario_configuracao(request, template_name='usuario_configuracao.html'):
     return render(request, template_name)
 
 
-def efetuar_login(request, template_name="login.html"):
-    next = request.GET.get('next', '/usuario_lista/')
-    if request.method == "POST":
-        username = request.POST['username']
-        password = request.POST['password']
-        username = username.lower()
-
-        user = authenticate(username=username, password=password)
-        if user is not None:
-            login(request, user)
-            return HttpResponseRedirect(next)
-        else:
-            messages.error(request, 'Usuário ou senha incorretos.')
-            return HttpResponseRedirect(settings.LOGIN_URL)
-
-    return render(request, template_name, {'redirect_to': next})
-
-
-def efetuar_logout(request):
-    logout(request)
-    return HttpResponseRedirect(settings.LOGIN_URL)
+@login_required
+def usuario_lista(request, template_name="usuario_lista.html"):
+    usuarios = User.objects.all()
+    usuario = {'lista': usuarios}
+    return render(request, template_name, usuario)

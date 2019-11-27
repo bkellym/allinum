@@ -16,11 +16,24 @@
         <div class = "col s2">	</div>
 
         <form class="col s8" method="POST"> {% csrf_token %}
-            <h4> Tem certeza que deseja excluir o usuário "{{ usuario.username }}"?</h4>
-            <br>
-            <button class="btn waves-effect waves-light red darken-2" type="submit">
-                Remover <i class="material-icons right">clear</i>
-            </button>
+            <div class="row">
+                <div class="col s12">
+                    <h4> Tem certeza que deseja excluir o usuário "{{ usuario.username }}"?</h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s2">
+                    <button class="btn waves-effect waves-light blue-grey lighten-4">
+                        <a href=" {% url 'usuario_lista' %}" class="black-text text-lighten-5">Cancelar</a>
+                    </button>
+                </div>
+
+                <div class="input-field col s2">
+                    <button class="btn waves-effect waves-light red darken-2" type="submit">
+                        Remover <i class="material-icons right">clear</i>
+                    </button>
+                </div>
+            </div>
         </form>
 
         <div class = "col s2">	</div>
