@@ -33,7 +33,19 @@
                         <td> {{ projeto.titulo }} </td>
                         <td> {{ projeto.descricao }} </td>
                         <td> {{ projeto.ult_alt }} </td>
+                        {% if projeto.lider == request.user %}
+                        <td>
+                            <a href="{% url 'projeto_editar' pk=projeto.pk %}">
+                                <i class="material-icons">create</i>
+                            </a>
+                            <a href="{% url 'projeto_delete' pk=projeto.pk %}">
+                                <i class="material-icons">delete</i>
+                            </a>
+                        </td>
+                        {% endif %}
+                        {% if projeto.lider != request.user %}
                         <td> {{ projeto.lider }} </td>
+                        {% endif %}
                     </tr>
                 {% endfor %}
                 </tbody>

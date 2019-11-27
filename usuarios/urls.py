@@ -12,5 +12,7 @@ urlpatterns = [
     url(r'^usuario_lista/$', usuario_lista, name='usuario_lista'),
     url(r'^usuario_configuracao/$', usuario_configuracao, name='usuario_configuracao'),
     url(r'^projeto_cadastro/$', projeto_cadastro, name='projeto_cadastro'),
+    url(r'^projeto_delete/(?P<pk>[0-9]+)', projeto_delete, name='projeto_delete'),
+    url(r'^projeto_editar/(?P<pk>[0-9]+)', projeto_editar, name='projeto_editar'),
     url(r'^projeto_lista/$', projeto_lista, name='projeto_lista')
 ]

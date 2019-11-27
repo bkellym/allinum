@@ -172,6 +172,48 @@ def projeto_cadastro(request, template_name="projeto_cadastro.html"):
         return redirect('/projeto_lista/')
     return render(request, template_name, {})
 
+@login_required
+def projeto_delete(request, pk, template_name='projeto_delete.html'):
+    user = request.user
+    try:
+        projeto = Projeto.objects.get(pk=pk)
+    except:
+        messages.error(request, "Projeto não encontrado!")
+        return redirect('/projeto_lista/')
+
+    if projeto.lider == user:
+        if request.method == "POST":
+            projeto.delete()
+            return redirect('projeto_lista')
+    else:
+        messages.error(request, "Permissão Negada!")
+        return redirect('/projeto_lista/')
+
+    return render(request, template_name, {'projeto':projeto})
+
+
+@login_required
+def projeto_editar(request, pk, template_name="projeto_editar.html"):
+    user = request.user
+    try:
+        projeto = Projeto.objects.get(pk=pk)
+    except:
+        messages.error(request, "Projeto não encontrado!")
+        return redirect('/projeto_lista/')
+
+    if request.method == "POST":
+        # Recebendo valores do formulário
+        titulo = request.POST['titulo']
+        descricao = request._post['descricao']
+
+        projeto.titulo = titulo
+        projeto.descricao = descricao
+        projeto.save()
+        return redirect('/projeto_lista/')
+
+
+    return render(request, template_name, {'projeto': projeto})
+
 
 @login_required
 def projeto_lista(request, template_name="projeto_lista.html"):
