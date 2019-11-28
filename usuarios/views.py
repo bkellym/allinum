@@ -242,3 +242,44 @@ def projeto_lista(request, template_name="projeto_lista.html"):
     projetos = Projeto.objects.all()
     context = {"context": projetos}
     return render(request, template_name, context)
+
+
+@login_required
+def projeto_visao(request, pk, template_name="visao_projeto.html"):
+    tarefas = Tarefa.objects.filter(projeto_id=pk)
+    categoria = Categoria.objects.all()
+
+    try:
+        projeto = Projeto.objects.get(pk=pk)
+    except:
+        messages.error(request, "Projeto não encontrado!")
+        return redirect('/projeto_lista/')
+
+    context = {'projeto': projeto, 'tarefas': tarefas, 'categorias': categoria}
+    return render(request, template_name, context)
+
+
+class TarefaForm(ModelForm):
+    class Meta:
+        model = Tarefa
+        fields = ['titulo', 'resp', 'projeto', 'categoria', 'prioridade']
+
+
+def tarefa_cadastro(request, pk, template_name="tarefa_cadastro.html"):
+    try:
+        projeto = Projeto.objects.get(pk=pk)
+    except:
+        messages.error(request, "Projeto não encontrado!")
+        return redirect('/projeto_lista/')
+
+    membro = Membro.objects.all()
+    categoria = Categoria.objects.all()
+    # Recebe formulário e transforma em um objeto
+    tarefa = TarefaForm(request.POST or None)
+    if tarefa.is_valid():
+        tarefa.save()
+
+        # Redirecionamento
+        return redirect('/visao_projeto/' + pk)
+    context = {'form': tarefa, 'membro_list':membro, 'categoria_list':categoria, 'projeto':projeto}
+    return render(request, template_name, context)

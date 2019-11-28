@@ -1,0 +1,80 @@
+{% extends 'baseTemplate.html' %}
+
+<!-- Title da Página -->
+{% block title %}
+    Allinum .:. {{ projeto.titulo }}
+{% endblock title %}
+
+<!-- Titulo que aparece no SubMenu da Página -->
+{% block titulo %}
+    {{ projeto.titulo }} > Cadastro de Tarefa
+{% endblock titulo %}
+
+<!-- Conteúdo da Página (Hexadecimal) -->
+{% block conteudo %}
+    <div class = "row" style="margin-top: 20px;">
+        <div class = "col s2">	</div>
+
+        <form class="col s8" method="POST"> {% csrf_token %}
+
+            <div class = "row">
+				<div class="col s12">
+					<label for="id_titulo"> Titulo: </label>
+					<input name="titulo" cols="40" rows="10" maxlength="100" required id="id_titulo"/>
+				</div>
+			</div>
+
+            <div class = "row">
+				<div class="col s12">
+					<label for="id_resp"> Responsável: </label>
+                    <select id="id_resp" name = "resp" required>
+                        <option value = "" disabled selected> Escolha uma opção </option>
+                        {% for membro in membro_list %}
+                            <option value = "{{ membro.pk }}"> {{ membro.user.username}} </option>
+                        {% endfor %}
+                    </select>
+				</div>
+			</div>
+
+            <input type="hidden" name="projeto" required id="id_projeto" value="{{ projeto.pk }}">
+
+            <div class = "row">
+				<div class="col s12">
+					<label for="id_categoria"> Categoria: </label>
+                    <select id="id_categoria" name = "categoria" required>
+                        <option value = "" disabled selected> Escolha uma opção </option>
+                        {% for categoria in categoria_list %}
+                            <option value = "{{ categoria.pk }}"> {{ categoria.nome }} </option>
+                        {% endfor %}
+                    </select>
+				</div>
+			</div>
+
+            <div class = "row">
+				<div class="col s12">
+					<label for="id_prioridade"> Prioridade: </label>
+                    <select name = "prioridade" id="id_prioridade" required>
+                        <option value = "" disabled selected> Escolha uma opção </option>
+                        <option value = "baixa"> Baixa </option>
+                        <option value = "media"> Média </option>
+                        <option value = "alta"> Alta </option>
+                    </select>
+				</div>
+			</div>
+
+            <div class="row">
+                <div class="input-field col s3">
+                    <button class="btn waves-effect waves-light blue-grey lighten-4">
+                        <a href=" {% url 'usuario_lista' %}" class="black-text text-lighten-5">Cancelar</a>
+                    </button>
+                </div>
+
+                <div class="input-field col s3">
+                    <button class="btn waves-effect waves-light" type="submit" name="action">
+                        Cadastrar
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock conteudo %}

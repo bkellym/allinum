@@ -28,7 +28,7 @@
                 <tbody>
                 {% for projeto in context %}
                     <tr>
-                        <td> {{ projeto.titulo }} </td>
+                        <td> <a href="{% url 'visao_projeto' pk=projeto.pk %}"> {{ projeto.titulo }} </a> </td>
                         <td> {{ projeto.descricao }} </td>
                         <td> {{ projeto.ult_alt }} </td>
                         {% if projeto.lider == request.user %}

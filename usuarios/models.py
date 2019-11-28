@@ -39,6 +39,9 @@ def create_user_membro(sender, instance, created, **kwargs):
 def alter_user_membro(sender, instance, **kwargs):
     instance.membro.save()
 
+class Categoria(models.Model):
+    nome = models.CharField(max_length=100, null=False)
+
 class Projeto(models.Model):
     titulo = models.TextField(max_length=100, null=False)
     descricao = models.TextField(max_length=400, null=False)
@@ -46,3 +49,12 @@ class Projeto(models.Model):
     membros = models.ManyToManyField(Membro)
     ult_alt = models.TextField(max_length=100, null=True)
     data_ult_alt = models.DateField(null=True)
+
+class Tarefa(models.Model):
+    titulo = models.CharField(max_length=100, null=False)
+    resp = models.ForeignKey(Membro, on_delete=models.CASCADE)
+    projeto = models.ForeignKey(Projeto, on_delete=models.CASCADE)
+    prioridade = models.CharField(max_length=15, null=True)
+    data_limite = models.DateField(null=True)
+    concluido = models.BooleanField(default=False)
+    categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)

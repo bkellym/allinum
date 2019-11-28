@@ -92,6 +92,11 @@
                 $('select').material_select();
             });
 
+            document.addEventListener('DOMContentLoaded', function() {
+			    var elems = document.querySelectorAll('#projetos-options');
+			    var instances = M.FloatingActionButton.init(elems, options);
+			});
+
             {% if messages %}
                 {% for message in messages %}
                     $(document).ready(function() {

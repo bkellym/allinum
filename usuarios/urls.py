@@ -14,5 +14,7 @@ urlpatterns = [
     url(r'^projeto_cadastro/$', projeto_cadastro, name='projeto_cadastro'),
     url(r'^projeto_delete/(?P<pk>[0-9]+)', projeto_delete, name='projeto_delete'),
     url(r'^projeto_editar/(?P<pk>[0-9]+)', projeto_editar, name='projeto_editar'),
-    url(r'^projeto_lista/$', projeto_lista, name='projeto_lista')
+    url(r'^projeto_lista/$', projeto_lista, name='projeto_lista'),
+    url(r'^visao_projeto/(?P<pk>[0-9]+)', projeto_visao, name='visao_projeto'),
+    url(r'^tarefa_cadastro/(?P<pk>[0-9]+)', tarefa_cadastro, name='tarefa_cadastro')
 ]
