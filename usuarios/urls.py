@@ -16,5 +16,8 @@ urlpatterns = [
     url(r'^projeto_editar/(?P<pk>[0-9]+)', projeto_editar, name='projeto_editar'),
     url(r'^projeto_lista/$', projeto_lista, name='projeto_lista'),
     url(r'^visao_projeto/(?P<pk>[0-9]+)', projeto_visao, name='visao_projeto'),
-    url(r'^tarefa_cadastro/(?P<pk>[0-9]+)', tarefa_cadastro, name='tarefa_cadastro')
+    url(r'^tarefa_cadastro/(?P<pk>[0-9]+)', tarefa_cadastro, name='tarefa_cadastro'),
+    url(r'^tarefa_editar/(?P<pk>[0-9]+)', tarefa_editar, name='tarefa_editar'),
+    url(r'^tarefa_delete/(?P<pk>[0-9]+)/(?P<projeto_pk>[0-9]+)', tarefa_delete, name='tarefa_delete'),
+    url(r'^visao_projeto_tarefa/(?P<pk>[0-9]+)', tarefas_do_usuario_projeto, name='visao_projeto_tarefa')
 ]

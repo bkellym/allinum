@@ -1,0 +1,86 @@
+{% extends 'baseTemplate.html' %}
+
+<!-- Title da Página -->
+{% block title %}
+    Allinum .:. {{ projeto.titulo }}
+{% endblock title %}
+
+<!-- Titulo que aparece no SubMenu da Página -->
+{% block titulo %}
+    {{ projeto.titulo }} > Cadastro de Tarefa
+{% endblock titulo %}
+
+<!-- Conteúdo da Página (Hexadecimal) -->
+{% block conteudo %}
+    <div class = "row" style="margin-top: 20px;">
+        <div class = "col s2">	</div>
+
+        <form class="col s8" method="POST"> {% csrf_token %}
+
+            <div class = "row">
+				<div class="col s12">
+					<label for="id_titulo"> Titulo: </label>
+					<input name="titulo" cols="40" rows="10" maxlength="100" required id="id_titulo" value="{{ tarefa.titulo }}"/>
+				</div>
+			</div>
+
+            <div class = "row">
+				<div class="col s12">
+					<label for="id_resp"> Responsável: </label>
+                    <select id="id_resp" name = "resp" required>
+                        <option value = "" disabled selected> Escolha uma opção </option>
+                        {% for membro in membro_list %}
+                            <option value = "{{ membro.pk }}" {% if membro.pk == tarefa.resp.id %} selected {% endif %}> {{ membro.user.username}} </option>
+                        {% endfor %}
+                    </select>
+				</div>
+			</div>
+
+            <input type="hidden" name="projeto" required id="id_projeto" value="{{ projeto.pk }}">
+
+            <div class = "row">
+				<div class="col s12">
+					<label for="id_categoria"> Categoria: </label>
+                    <select id="id_categoria" name = "categoria" required>
+                        <option value = "" disabled selected> Escolha uma opção </option>
+                        {% for categoria in categoria_list %}
+                            <option value = "{{ categoria.pk }}" {% if categoria.pk == tarefa.categoria.id %} selected {% endif %}> {{ categoria.nome }} </option>
+                        {% endfor %}
+                    </select>
+				</div>
+			</div>
+
+            <div class = "row">
+				<div class="col s12">
+					<label for="id_prioridade"> Prioridade: </label>
+                    <select name = "prioridade" id="id_prioridade" required>
+                        <option value = "" disabled> Escolha uma opção </option>
+                        <option value = "baixa" {% if "baixa" == tarefa.prioridade %} selected {% endif %}> Baixa </option>
+                        <option value = "media" {% if "media" == tarefa.prioridade %} selected {% endif %}> Média </option>
+                        <option value = "alta" {% if "alta" == tarefa.prioridade %} selected {% endif %}> Alta </option>
+                    </select>
+				</div>
+			</div>
+
+            <div class="row">
+                <div class="input-field col s3">
+                    <button class="btn waves-effect waves-light blue-grey lighten-4">
+                        <a href=" {% url 'visao_projeto' pk=projeto.pk %}" class="black-text text-lighten-5">Cancelar</a>
+                    </button>
+                </div>
+
+                <div class="input-field col s3">
+                    <button class="btn waves-effect waves-light red lighten-2">
+                        <a href=" {% url 'tarefa_delete' pk=tarefa.pk projeto_pk=projeto.pk %}" class="black-text text-lighten-5">Excluir</a>
+                    </button>
+                </div>
+
+                <div class="input-field col s3">
+                    <button class="btn waves-effect waves-light" type="submit" name="action">
+                        Salvar
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock conteudo %}

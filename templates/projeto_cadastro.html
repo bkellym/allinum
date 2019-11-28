@@ -40,10 +40,12 @@
 				<div class="col s12">
 					<label for="id_membros">Membros:</label>
 
-					<select name="membros" required id="id_membros" multiple>
-                        <option value=""> </option>
+					<select name="membros" id="id_membros" multiple>
+                        <option value="" disabled> </option>
 					  	{% for membro in membro_list %}
+                            {% if membro.user.id != request.user.id %}
                             <option value="{{ membro.id }}"> {{ membro.user.username }} </option>
+                            {% endif %}
                         {% endfor %}
 					</select>
 				</div>

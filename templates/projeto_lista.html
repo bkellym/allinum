@@ -31,7 +31,7 @@
                         <td> <a href="{% url 'visao_projeto' pk=projeto.pk %}"> {{ projeto.titulo }} </a> </td>
                         <td> {{ projeto.descricao }} </td>
                         <td> {{ projeto.ult_alt }} </td>
-                        {% if projeto.lider == request.user %}
+                        {% if projeto.lider == request.user or user.is_superuser %}
                         <td>
                             <a href="{% url 'projeto_editar' pk=projeto.pk %}">
                                 <i class="material-icons">create</i>
@@ -41,7 +41,7 @@
                             </a>
                         </td>
                         {% endif %}
-                        {% if projeto.lider != request.user %}
+                        {% if projeto.lider != request.user and not user.is_superuser %}
                         <td> {{ projeto.lider }} </td>
                         {% endif %}
                     </tr>

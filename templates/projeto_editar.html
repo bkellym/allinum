@@ -18,28 +18,51 @@
         <form class="col s8" method="POST"> {% csrf_token %}
 
             <div class = "row">
-                <div class="col s12">
-                    <label for="titulo"> Titulo: </label>
-                    <input id="titulo" name="titulo" type="text" class="validate" value="{{ projeto.titulo }}" required>
-                </div>
-            </div>
+				<div class="col s12">
+					<label for="id_titulo"> Titulo: </label>
+					<input id="id_titulo" name="titulo" maxlength="100" value="{{ projeto.titulo }}" required/>
+				</div>
+			</div>
+
+			<div class = "row">
+				<div class="col s12">
+					<label for="id_descricao"> Descrição: </label>
+				</div>
+			</div>
+
+			<div class = "row">
+				<div class="col s12">
+					<textarea name="descricao" cols="40" rows="10" maxlength="400" required> {{ projeto.descricao }} </textarea>
+				</div>
+			</div>
 
             <div class = "row">
-                <div class="col s12">
-                    <label for="descricao"> Descrição: </label>
-                </div>
-            </div>
+				<div class="col s12">
+					<label for="id_membros">Membros:</label>
 
-            <div class = "row">
-                <div class="col s12">
-                    <input id="descricao" name="descricao" type="textaria" class="validate" style="width:100%; height: 150px;" value="{{ projeto.descricao }}" required>
-                </div>
-            </div>
+					<select name="membros" id="id_membros" multiple>
+                        <option value="" disabled> </option>
+					  	{% for membro in membro_list %}
+                            {% if membro.user.id != request.user.id %}
+                            <option value="{{ membro.id }}"> {{ membro.user.username }} </option>
+                            {% endif %}
+                        {% endfor %}
+					</select>
+				</div>
+			</div>
+
+			<input type="hidden" name="lider" required id="id_lider" value="{{ request.user.pk }}">
 
             <div class="row">
-                <div class="input-field col s2">
+                <div class="input-field col s3">
                     <button class="btn waves-effect waves-light blue-grey lighten-4">
                         <a href=" {% url 'projeto_lista' %}" class="black-text text-lighten-5">Cancelar</a>
+                    </button>
+                </div>
+
+                <div class="input-field col s3">
+                    <button class="btn waves-effect waves-light red lighten-2">
+                        <a href=" {% url 'projeto_delete' pk=projeto.pk %}" class="black-text text-lighten-5">Excluir</a>
                     </button>
                 </div>
 
