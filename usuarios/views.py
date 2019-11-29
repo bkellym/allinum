@@ -123,23 +123,22 @@ def usuario_editar(request, pk, template_name='usuario_editar.html'):
     return render(request, template_name, {'usuario': usuario})
 
 @login_required
-def usuario_delete(request, pk, template_name='usuario_delete.html'):
+def usuario_delete(request):
     user = request.user
-    try:
-        usuario = User.objects.get(pk=pk)
-    except:
-        messages.error(request, "Usuário não encontrado!")
-        return redirect('/usuario_lista/')
+    if request.method == "POST":
+        pk = request.POST['pk']
+        try:
+            usuario = User.objects.get(pk=pk)
+        except:
+            messages.error(request, "Usuário não encontrado!")
+            return redirect('/usuario_lista/')
 
-    if user.is_superuser:
-        if request.method == "POST":
+        if user.is_superuser:
             usuario.delete()
             return redirect('usuario_lista')
-    else:
-        messages.error(request, "Permissão Negada!")
-        return redirect('/projeto_lista/')
-
-    return render(request, template_name, {'usuario':usuario})
+        else:
+            messages.error(request, "Permissão Negada!")
+            return redirect('/projeto_lista/')
 
 
 @login_required
@@ -209,23 +208,22 @@ def projeto_editar(request, pk, template_name="projeto_editar.html"):
     return render(request, template_name, {'projeto': form, 'membro_list':membro})
 
 @login_required
-def projeto_delete(request, pk, template_name='projeto_delete.html'):
+def projeto_delete(request):
     user = request.user
-    try:
-        projeto = Projeto.objects.get(pk=pk)
-    except:
-        messages.error(request, "Projeto não encontrado!")
-        return redirect('/projeto_lista/')
+    if request.method == "POST":
+        pk = request.POST['pk']
+        try:
+            projeto = Projeto.objects.get(pk=pk)
+        except:
+            messages.error(request, "Projeto não encontrado!")
+            return redirect('/projeto_lista/')
 
-    if projeto.lider == user or user.is_superuser:
-        if request.method == "POST":
-            projeto.delete()
-            return redirect('projeto_lista')
-    else:
-        messages.error(request, "Permissão Negada!")
-        return redirect('/projeto_lista/')
-
-    return render(request, template_name, {'projeto':projeto})
+        if projeto.lider == user or user.is_superuser:
+                projeto.delete()
+                return redirect('projeto_lista')
+        else:
+            messages.error(request, "Permissão Negada!")
+            return redirect('/projeto_lista/')
 
 
 @login_required
@@ -287,18 +285,19 @@ def tarefa_editar(request, pk, template_name="tarefa_editar.html"):
     return render(request, template_name, context)
 
 @login_required
-def tarefa_delete(request, pk, projeto_pk, template_name='projeto_delete.html'):
-    try:
-        tarefa = Tarefa.objects.get(pk=pk)
-    except:
-        messages.error(request, "Tarefa não encontrada!")
-        return redirect('/visao_projeto/' + projeto_pk)
-
+def tarefa_delete(request):
     if request.method == "POST":
-            tarefa.delete()
+        pk = request.POST['pk']
+        projeto_pk =request.POST['projeto']
+        try:
+            tarefa = Tarefa.objects.get(pk=pk)
+        except:
+            messages.error(request, "Tarefa não encontrada!")
             return redirect('/visao_projeto/' + projeto_pk)
 
-    return render(request, template_name, {'projeto':tarefa})
+        if request.method == "POST":
+                tarefa.delete()
+                return redirect('/visao_projeto/' + projeto_pk)
 
 
 class RequisitoForm(ModelForm):

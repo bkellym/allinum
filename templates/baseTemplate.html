@@ -102,6 +102,10 @@
                 var instances = M.Collapsible.init(elems, options);
             });
 
+            $(document).ready(function(){
+			    $('.modal').modal();
+			});
+
             {% if messages %}
                 {% for message in messages %}
                     $(document).ready(function() {

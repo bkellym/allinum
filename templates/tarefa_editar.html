@@ -71,7 +71,7 @@
 
                 <div class="input-field col s3">
                     <button class="btn waves-effect waves-light red lighten-2">
-                        <a href=" {% url 'tarefa_delete' pk=tarefa.pk projeto_pk=projeto.pk %}" class="black-text text-lighten-5">Excluir</a>
+                        <a href="#modal1" class="black-text text-lighten-5">Excluir</a>
                     </button>
                 </div>
 
@@ -82,5 +82,28 @@
                 </div>
             </div>
         </form>
+    </div>
+
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <h4> Apagar Tarefa </h4>
+            <p>Tem certeza que deseja excluir a Tarefa "{{ tarefa.titulo }}"?</p>
+        </div>
+
+        <div class="modal-footer">
+            <div class="row">
+                <div class="col s4"></div>
+                <div class="col s4">
+                    <button href="#!" class="modal-close waves-effect waves-green btn-flat">Cancelar</button>
+                </div>
+                <div class="col s4">
+                    <form method="post" action="{% url 'tarefa_delete' %}"> {% csrf_token %}
+                        <input type="hidden" name="pk" value="{{ tarefa.pk }}">
+                        <input type="hidden" name="projeto" value="{{ projeto.pk }}">
+                        <button type="submit" class="waves-effect waves-green btn-flat red darken-2" style="position:relative; left: -20px">Deletar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 {% endblock conteudo %}

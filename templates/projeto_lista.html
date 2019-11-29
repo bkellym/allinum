@@ -36,7 +36,7 @@
                             <a href="{% url 'projeto_editar' pk=projeto.pk %}">
                                 <i class="material-icons">create</i>
                             </a>
-                            <a href="{% url 'projeto_delete' pk=projeto.pk %}">
+                            <a href="#modal1">
                                 <i class="material-icons">delete</i>
                             </a>
                         </td>
@@ -45,6 +45,30 @@
                         <td> {{ projeto.lider }} </td>
                         {% endif %}
                     </tr>
+
+
+                    <div id="modal1" class="modal">
+                        <div class="modal-content">
+                            <h4>Apagar Projeto</h4>
+                            <p>Tem certeza que deseja excluir o projeto "{{ projeto.titulo }}"?</p>
+                        </div>
+
+                        <div class="modal-footer">
+                            <div class="row">
+                                <div class="col s4"></div>
+                                <div class="col s4">
+                                    <button href="#!" class="modal-close waves-effect waves-green btn-flat">Cancelar</button>
+                                </div>
+                                <div class="col s4">
+                                    <form method="post" action="{% url 'projeto_delete' %}"> {% csrf_token %}
+                                        <input type="hidden" name="pk" value="{{ projeto.pk }}">
+                                        <button type="submit" class="waves-effect waves-green btn-flat red darken-2" style="position:relative; top:-15px; left: -20px">Deletar</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 {% endfor %}
                 </tbody>
             </table>
@@ -53,4 +77,5 @@
     <div style="position: absolute; bottom:50px; right: 50px;">
           <a class="btn-floating btn-large waves-effect waves-light light-blue darken-4" href = "{% url 'projeto_cadastro' %}"><i class="material-icons">add</i></a>
     </div>
+
 {% endblock conteudo %}
