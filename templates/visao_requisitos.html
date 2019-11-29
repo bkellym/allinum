@@ -35,7 +35,11 @@
                         {% if requisito.categoria.id == 1 %}
                     <div class="row">
                         <div class="col s12 light-blue darken-3 white-text" style="width: 90%; margin-left: 5%; border-radius: 30px;	height:40px;">
-                            <h6> {{ requisito.titulo }} {% if projeto.lider.id == request.user.id %} <a href="" class="secondary-content red-text text-lighten-3"><i class="material-icons">close</i></a> {% endif %} </h6>
+                            <form method="post" action="{% url 'requisito_delete' %}"> {% csrf_token %}
+                                <input type="hidden" name="pk" value="{{ requisito.id }}">
+                                <input type="hidden" name="projeto" value="{{ requisito.projeto.id }}">
+                                <h6> {{ requisito.titulo }} {% if projeto.lider.id == request.user.id %} <button type="submit" class="secondary-content btn-floating btn-small red lighten-3" style="margin-top: -2%"><i class="material-icons">close</i></button> {% endif %} </h6>
+                            </form>
                         </div>
                     </div>
                         {% endif %}
@@ -63,7 +67,11 @@
                         {% if requisito.categoria.id == 2 %}
                     <div class="row">
                         <div class="col s12 light-blue darken-3 white-text" style="width: 90%; margin-left: 5%; border-radius: 30px;	height:40px;">
-                            <h6> {{ requisito.titulo }} {% if projeto.lider.id == request.user.id %} <a href="" class="secondary-content red-text text-lighten-3"><i class="material-icons">close</i></a> {% endif %} </h6>
+                            <form method="post" action="{% url 'requisito_delete' %}"> {% csrf_token %}
+                                <input type="hidden" name="pk" value="{{ requisito.id }}">
+                                <input type="hidden" name="projeto" value="{{ requisito.projeto.id }}">
+                                <h6> {{ requisito.titulo }} {% if projeto.lider.id == request.user.id %} <button type="submit" class="secondary-content btn-floating btn-small red lighten-3" style="margin-top: -2%"><i class="material-icons">close</i></button> {% endif %} </h6>
+                            </form>
                         </div>
                     </div>
                         {% endif %}
@@ -93,7 +101,11 @@
                         {% if requisito.categoria.id == 3 %}
                     <div class="row">
                         <div class="col s12 light-blue darken-3 white-text" style="width: 90%; margin-left: 5%; border-radius: 30px;	height:40px;">
-                            <h6> {{ requisito.titulo }} {% if projeto.lider.id == request.user.id %} <a href="" class="secondary-content red-text text-lighten-3"><i class="material-icons">close</i></a> {% endif %} </h6>
+                            <form method="post" action="{% url 'requisito_delete' %}"> {% csrf_token %}
+                                <input type="hidden" name="pk" value="{{ requisito.id }}">
+                                <input type="hidden" name="projeto" value="{{ requisito.projeto.id }}">
+                                <h6> {{ requisito.titulo }} {% if projeto.lider.id == request.user.id %} <button type="submit" class="secondary-content btn-floating btn-small red lighten-3" style="margin-top: -2%"><i class="material-icons">close</i></button> {% endif %} </h6>
+                            </form>
                         </div>
                     </div>
                         {% endif %}
@@ -121,7 +133,11 @@
                         {% if requisito.categoria.id == 4 %}
                     <div class="row">
                         <div class="col s12 light-blue darken-3 white-text" style="width: 90%; margin-left: 5%; border-radius: 30px;	height:40px;">
-                            <h6> {{ requisito.titulo }} {% if projeto.lider.id == request.user.id %} <a href="" class="secondary-content red-text text-lighten-3"><i class="material-icons">close</i></a> {% endif %} </h6>
+                            <form method="post" action="{% url 'requisito_delete' %}"> {% csrf_token %}
+                                <input type="hidden" name="pk" value="{{ requisito.id }}">
+                                <input type="hidden" name="projeto" value="{{ requisito.projeto.id }}">
+                                <h6> {{ requisito.titulo }} {% if projeto.lider.id == request.user.id %} <button type="submit" class="secondary-content btn-floating btn-small red lighten-3" style="margin-top: -2%"><i class="material-icons">close</i></button> {% endif %} </h6>
+                            </form>
                         </div>
                     </div>
                         {% endif %}
@@ -151,7 +167,11 @@
                         {% if requisito.categoria.id == 5 %}
                     <div class="row">
                         <div class="col s12 light-blue darken-3 white-text" style="width: 90%; margin-left: 5%; border-radius: 30px;	height:40px;">
-                            <h6> {{ requisito.titulo }} {% if projeto.lider.id == request.user.id %} <a href="" class="secondary-content red-text text-lighten-3"><i class="material-icons">close</i></a> {% endif %} </h6>
+                            <form method="post" action="{% url 'requisito_delete' %}"> {% csrf_token %}
+                                <input type="hidden" name="pk" value="{{ requisito.id }}">
+                                <input type="hidden" name="projeto" value="{{ requisito.projeto.id }}">
+                                <h6> {{ requisito.titulo }} {% if projeto.lider.id == request.user.id %} <button type="submit" class="secondary-content btn-floating btn-small red lighten-3" style="margin-top: -2%"><i class="material-icons">close</i></button> {% endif %} </h6>
+                            </form>
                         </div>
                     </div>
                         {% endif %}
@@ -179,7 +199,11 @@
                         {% if requisito.categoria.id == 6 %}
                     <div class="row">
                         <div class="col s12 light-blue darken-3 white-text" style="width: 90%; margin-left: 5%; border-radius: 30px;	height:40px;">
-                            <h6> {{ requisito.titulo }} {% if projeto.lider.id == request.user.id %} <a href="" class="secondary-content red-text text-lighten-3"><i class="material-icons">close</i></a> {% endif %} </h6>
+                            <form method="post" action="{% url 'requisito_delete' %}"> {% csrf_token %}
+                                <input type="hidden" name="pk" value="{{ requisito.id }}">
+                                <input type="hidden" name="projeto" value="{{ requisito.projeto.id }}">
+                                <h6> {{ requisito.titulo }} {% if projeto.lider.id == request.user.id %} <button type="submit" class="secondary-content btn-floating btn-small red lighten-3" style="margin-top: -2%"><i class="material-icons">close</i></button> {% endif %} </h6>
+                            </form>
                         </div>
                     </div>
                         {% endif %}

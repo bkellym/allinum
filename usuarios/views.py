@@ -313,6 +313,21 @@ def requisito_cadastro(request):
         form.save()
         return redirect('/visao_requisito/' + form.instance.projeto.id.__str__())
 
+@login_required
+def requisito_delete(request):
+    if request.method == "POST":
+        pk = request.POST['pk']
+        projeto = request.POST['projeto']
+
+        try:
+            requisito = Requisito.objects.get(pk=pk)
+        except:
+            messages.error(request, "Tarefa não encontrada!")
+            return redirect('/visao_requisito/' + projeto)
+
+        requisito.delete()
+        return redirect('/visao_requisito/' + projeto)
+
 
 @login_required
 def projeto_visao(request, pk, template_name="visao_projeto.html"):
