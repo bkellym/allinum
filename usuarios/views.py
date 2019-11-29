@@ -300,6 +300,20 @@ def tarefa_delete(request, pk, projeto_pk, template_name='projeto_delete.html'):
 
     return render(request, template_name, {'projeto':tarefa})
 
+
+class RequisitoForm(ModelForm):
+    class Meta:
+        model = Requisito
+        fields = ['titulo', 'categoria', 'projeto']
+
+@login_required
+def requisito_cadastro(request):
+    form = RequisitoForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('/visao_requisito/' + form.instance.projeto.id.__str__())
+
+
 @login_required
 def projeto_visao(request, pk, template_name="visao_projeto.html"):
     tarefas = Tarefa.objects.filter(projeto_id=pk)
@@ -339,4 +353,17 @@ def tarefa_visao(request, template_name="visao_tarefas.html"):
     categorias = Categoria.objects.all()
 
     context = {"projetos": projetos, "tarefas":tarefas, "categorias":categorias}
+    return render(request, template_name, context)
+
+@login_required
+def visao_requisitos(request, pk, template_name="visao_requisitos.html"):
+    try:
+        projeto = Projeto.objects.get(pk=pk)
+    except:
+        messages.error(request, "Projeto não encontrado!")
+        return redirect('/projeto_lista/')
+
+    requisitos = Requisito.objects.filter(projeto_id=projeto.pk)
+
+    context = {"projeto": projeto, "requisitos":requisitos, "template":"visao_requisito" }
     return render(request, template_name, context)

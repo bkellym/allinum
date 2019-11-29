@@ -1,0 +1,208 @@
+{% extends 'baseTemplate.html' %}
+
+<!-- Title da Página -->
+{% block title %}
+    Allinum .:. {{ projeto.titulo }}
+{% endblock title %}
+
+<!-- Titulo que aparece no SubMenu da Página -->
+{% block titulo %}
+    {{ projeto.titulo }}
+{% endblock titulo %}
+
+<!-- Conteúdo da Página (Hexadecimal) -->
+{% block conteudo %}
+    <div class = "row" style="margin-top:10px;">
+        <div class = "col s4" style="width: 30%; margin-left: 1%;">
+            <div class = "row">
+                <div class = "col s12" style = "background: #4fc3f7; min-height: 30%; border-radius: 20px;">
+                    <h5 style="font-size: 16pt; text-align: center;"> Interfaces com Usuário </h5>
+                    {% if projeto.lider.id == request.user.id %}
+                    <div class="row">
+                        <form method="post" action="{% url 'requisito_cadastro' %}"> {% csrf_token %}
+                            <div class="col s9">
+                                <input type="text" name="titulo" class="white" style="border-radius: 30px">
+                                <input type="hidden" name="categoria" value="1">
+                                <input type="hidden" name="projeto" value="{{ projeto.pk }}">
+                            </div>
+                            <div class="col s3">
+                                <button class="btn waves-effect waves-light" type="submit"  style="width: 100%; margin-top: 5%;"><i class="material-icons">add</i></button>
+                            </div>
+                        </form>
+                    </div>
+                    {% endif %}
+                    {% for requisito in requisitos %}
+                        {% if requisito.categoria.id == 1 %}
+                    <div class="row">
+                        <div class="col s12 light-blue darken-3 white-text" style="width: 90%; margin-left: 5%; border-radius: 30px;	height:40px;">
+                            <h6> {{ requisito.titulo }} {% if projeto.lider.id == request.user.id %} <a href="" class="secondary-content red-text text-lighten-3"><i class="material-icons">close</i></a> {% endif %} </h6>
+                        </div>
+                    </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            <div class = "row">
+                <div class = "col s12" style = "background: #4fc3f7; min-height: 30%; border-radius: 20px;">
+                    <h5 style="font-size: 16pt; text-align: center;"> Entradas </h5>
+                    {% if projeto.lider.id == request.user.id %}
+                    <div class="row">
+                        <form method="post" action="{% url 'requisito_cadastro' %}"> {% csrf_token %}
+                            <div class="col s9">
+                                <input type="text" name="titulo" class="white" style="border-radius: 30px">
+                                <input type="hidden" name="categoria" value="2">
+                                <input type="hidden" name="projeto" value="{{ projeto.pk }}">
+                            </div>
+                            <div class="col s3">
+                                <button class="btn waves-effect waves-light" type="submit"  style="width: 100%; margin-top: 5%;"><i class="material-icons">add</i></button>
+                            </div>
+                        </form>
+                    </div>
+                    {% endif %}
+                    {% for requisito in requisitos %}
+                        {% if requisito.categoria.id == 2 %}
+                    <div class="row">
+                        <div class="col s12 light-blue darken-3 white-text" style="width: 90%; margin-left: 5%; border-radius: 30px;	height:40px;">
+                            <h6> {{ requisito.titulo }} {% if projeto.lider.id == request.user.id %} <a href="" class="secondary-content red-text text-lighten-3"><i class="material-icons">close</i></a> {% endif %} </h6>
+                        </div>
+                    </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class = "col s4" style="width: 30%; margin-left: 1%;">
+            <div class = "row">
+                <div class = "col s12" style = "background: #4fc3f7; min-height: 30%; border-radius: 20px;">
+                    <h5 style="font-size: 16pt; text-align: center;"> Arquitetura/conhecimento Bibliotecas </h5>
+                    {% if projeto.lider.id == request.user.id %}
+                    <div class="row">
+                        <form method="post" action="{% url 'requisito_cadastro' %}"> {% csrf_token %}
+                            <div class="col s9">
+                                <input type="text" name="titulo" class="white" style="border-radius: 30px">
+                                <input type="hidden" name="categoria" value="3">
+                                <input type="hidden" name="projeto" value="{{ projeto.pk }}">
+                            </div>
+                            <div class="col s3">
+                                <button class="btn waves-effect waves-light" type="submit"  style="width: 100%; margin-top: 5%;"><i class="material-icons">add</i></button>
+                            </div>
+                        </form>
+                    </div>
+                    {% endif %}
+                    {% for requisito in requisitos %}
+                        {% if requisito.categoria.id == 3 %}
+                    <div class="row">
+                        <div class="col s12 light-blue darken-3 white-text" style="width: 90%; margin-left: 5%; border-radius: 30px;	height:40px;">
+                            <h6> {{ requisito.titulo }} {% if projeto.lider.id == request.user.id %} <a href="" class="secondary-content red-text text-lighten-3"><i class="material-icons">close</i></a> {% endif %} </h6>
+                        </div>
+                    </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            <div class = "row">
+                <div class = "col s12" style = "background: #4fc3f7; min-height: 30%; border-radius: 20px;">
+                    <h5 style="font-size: 16pt; text-align: center;"> Conectividade/M2M </h5>
+                    {% if projeto.lider.id == request.user.id %}
+                    <div class="row">
+                        <form method="post" action="{% url 'requisito_cadastro' %}"> {% csrf_token %}
+                            <div class="col s9">
+                                <input type="text" name="titulo" class="white" style="border-radius: 30px">
+                                <input type="hidden" name="categoria" value="4">
+                                <input type="hidden" name="projeto" value="{{ projeto.pk }}">
+                            </div>
+                            <div class="col s3">
+                                <button class="btn waves-effect waves-light" type="submit"  style="width: 100%; margin-top: 5%;"><i class="material-icons">add</i></button>
+                            </div>
+                        </form>
+                    </div>
+                    {% endif %}
+                    {% for requisito in requisitos %}
+                        {% if requisito.categoria.id == 4 %}
+                    <div class="row">
+                        <div class="col s12 light-blue darken-3 white-text" style="width: 90%; margin-left: 5%; border-radius: 30px;	height:40px;">
+                            <h6> {{ requisito.titulo }} {% if projeto.lider.id == request.user.id %} <a href="" class="secondary-content red-text text-lighten-3"><i class="material-icons">close</i></a> {% endif %} </h6>
+                        </div>
+                    </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class = "col s4" style="width: 30%; margin-left: 1%;">
+            <div class = "row">
+                <div class = "col s12" style = "background: #4fc3f7; min-height: 30%; border-radius: 20px;">
+                    <h5 style="font-size: 16pt; text-align: center;"> Funcionalidade/Função </h5>
+                    {% if projeto.lider.id == request.user.id %}
+                    <div class="row">
+                        <form method="post" action="{% url 'requisito_cadastro' %}"> {% csrf_token %}
+                            <div class="col s9">
+                                <input type="text" name="titulo" class="white" style="border-radius: 30px">
+                                <input type="hidden" name="categoria" value="5">
+                                <input type="hidden" name="projeto" value="{{ projeto.pk }}">
+                            </div>
+                            <div class="col s3">
+                                <button class="btn waves-effect waves-light" type="submit"  style="width: 100%; margin-top: 5%;"><i class="material-icons">add</i></button>
+                            </div>
+                        </form>
+                    </div>
+                    {% endif %}
+                    {% for requisito in requisitos %}
+                        {% if requisito.categoria.id == 5 %}
+                    <div class="row">
+                        <div class="col s12 light-blue darken-3 white-text" style="width: 90%; margin-left: 5%; border-radius: 30px;	height:40px;">
+                            <h6> {{ requisito.titulo }} {% if projeto.lider.id == request.user.id %} <a href="" class="secondary-content red-text text-lighten-3"><i class="material-icons">close</i></a> {% endif %} </h6>
+                        </div>
+                    </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            <div class = "row">
+                <div class = "col s12" style = "background: #4fc3f7; min-height: 30%; border-radius: 20px;">
+                    <h5 style="font-size: 16pt; text-align: center;"> Saídas </h5>
+                    {% if projeto.lider.id == request.user.id %}
+                    <div class="row">
+                        <form method="post" action="{% url 'requisito_cadastro' %}"> {% csrf_token %}
+                            <div class="col s9">
+                                <input type="text" name="titulo" class="white" style="border-radius: 30px">
+                                <input type="hidden" name="categoria" value="6">
+                                <input type="hidden" name="projeto" value="{{ projeto.pk }}">
+                            </div>
+                            <div class="col s3">
+                                <button class="btn waves-effect waves-light" type="submit"  style="width: 100%; margin-top: 5%;"><i class="material-icons">add</i></button>
+                            </div>
+                        </form>
+                    </div>
+                    {% endif %}
+                    {% for requisito in requisitos %}
+                        {% if requisito.categoria.id == 6 %}
+                    <div class="row">
+                        <div class="col s12 light-blue darken-3 white-text" style="width: 90%; margin-left: 5%; border-radius: 30px;	height:40px;">
+                            <h6> {{ requisito.titulo }} {% if projeto.lider.id == request.user.id %} <a href="" class="secondary-content red-text text-lighten-3"><i class="material-icons">close</i></a> {% endif %} </h6>
+                        </div>
+                    </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed-action-btn" id="projetos-options">
+      <a class="btn-floating btn-large teal accent-4">
+        <i class="large material-icons">mode_edit</i>
+      </a>
+      <ul>
+        {% if template == 'visao_projeto'%}
+            <li><a class="btn-floating blue darken-1" href="{% url 'visao_projeto_tarefa' pk=projeto.pk %}"><i class="material-icons">event_note</i></a></li>
+        {% endif %}
+        {% if template == 'visao_projeto_tarefa' or template == 'visao_requisito'%}
+            <li><a class="btn-floating blue darken-1" href="{% url 'visao_projeto' pk=projeto.pk %}"><i class="material-icons">insert_chart</i></a></li>
+        {% endif %}
+          {% if projeto.lider.pk == request.user.pk %}
+        <li><a class="btn-floating red darken-2" href="{% url 'projeto_editar' pk=projeto.pk %}"><i class="material-icons">settings</i></a></li>
+          {% endif %}
+      </ul>
+    </div>
+{% endblock conteudo %}

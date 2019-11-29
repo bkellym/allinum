@@ -58,3 +58,9 @@ class Tarefa(models.Model):
     data_limite = models.DateField(null=True)
     concluido = models.BooleanField(default=False)
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
+
+
+class Requisito(models.Model):
+    titulo = models.CharField(max_length=100, null=False)
+    categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
+    projeto = models.ForeignKey(Projeto, on_delete=models.CASCADE)
