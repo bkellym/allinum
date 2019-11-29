@@ -29,13 +29,14 @@
                                         {% for tarefa in tarefas %}
                                             {% if tarefa.categoria.id == categoria.id %}
                                         <tr>
-                                            <td style="width: 30%"> <a href="{% url 'tarefa_editar' pk=tarefa.pk %}" class="yellow-text text-lighten-4"> {{ tarefa.titulo }} </a> </td>
-                                            <td style="width: 30%"> {{ tarefa.resp.user.username }} </td>
+                                            <td style="width: 35%"> {{ tarefa.titulo }} </td>
+                                            <td style="width: 15%"> {{ tarefa.resp.user.username }} </td>
                                             <td class="{% if tarefa.prioridade == "baixa" %} light-green lighten-2 {% endif %}
                                                        {% if tarefa.prioridade == "media" %} yellow lighten-3 {% endif %}
                                                        {% if tarefa.prioridade == "alta" %} red lighten-3 {% endif %}"
                                                 style="text-align: center; width: 20%"> {{ tarefa.prioridade }} </td>
                                             <td style="text-align: center; width: 20%"> {{ tarefa.data_limite }} </td>
+                                            <td style="width: 5%"><a href="{% url 'tarefa_editar' pk=tarefa.pk %}" class="secondary-content" style="margin-right: 20%;"><i class="material-icons">send</i></a></td>
                                         </tr>
                                             {% endif %}
                                         {% endfor %}

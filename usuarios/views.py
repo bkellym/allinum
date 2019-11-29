@@ -314,7 +314,7 @@ def projeto_visao(request, pk, template_name="visao_projeto.html"):
     context = {'projeto': projeto, 'tarefas': tarefas, 'categorias': categoria, 'template': "visao_projeto"}
     return render(request, template_name, context)
 
-
+@login_required
 def tarefas_do_usuario_projeto(request, pk, template_name="visao_projeto.html"):
     tarefas = Tarefa.objects.filter(Q(resp=request.user.membro.id) & Q(projeto_id=pk))
     categoria = Categoria.objects.all()
@@ -325,4 +325,18 @@ def tarefas_do_usuario_projeto(request, pk, template_name="visao_projeto.html"):
         return redirect('/projeto_lista/')
 
     context = {'projeto': projeto, 'tarefas': tarefas, 'categorias': categoria, 'template': "visao_projeto_tarefa"}
+    return render(request, template_name, context)
+
+@login_required
+def tarefa_visao(request, template_name="visao_tarefas.html"):
+    user = request.user
+    if user.is_superuser:
+        projetos = Projeto.objects.all()
+    else:
+        projetos = Projeto.objects.filter(membros__user_id=user.id)
+
+    tarefas = Tarefa.objects.all()
+    categorias = Categoria.objects.all()
+
+    context = {"projetos": projetos, "tarefas":tarefas, "categorias":categorias}
     return render(request, template_name, context)
