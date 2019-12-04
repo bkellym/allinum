@@ -18,7 +18,18 @@
         <div class="col s11">
             <div class="row">
                 <div class="col s12">
-                    <h5 {% if request.user.profile.tema == 'N' %} class="grey-text text-lighten-1" {% endif %}>{{ categoria.nome }} </h5>
+
+                    {% if categoria.porcentagem >= 0 %}
+                    <div class="row">
+                        <div class="col s6">
+                            <h5 {% if request.user.profile.tema == 'N' %} class="grey-text text-lighten-1" {% endif %}>{{ categoria.nome }} </h5>
+                        </div>
+                        <div class="col s6 light-blue darken-4" style="height: 10px; margin-top: 2%;">
+                            <div class="light-green accent-4" style="height: 100%; width: {{categoria.porcentagem}}%;">
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
 
                     <div class="row">
                         <div class="col s1"></div>
@@ -31,8 +42,8 @@
                                         {% for tarefa in tarefas %}
                                             {% if tarefa.categoria.id == categoria.id %}
                                         <tr>
-                                            <td style="width: 35%"> {{ tarefa.titulo }} </td>
-                                            <td style="width: 15%"> {{ tarefa.resp.user.username }} </td>
+                                            <td style="width: 30%"> {{ tarefa.titulo }} </td>
+                                            <td style="width: 20%"> {{ tarefa.resp.user.username }} </td>
                                             <td class="{% if tarefa.prioridade == "baixa" %} light-green {% endif %}
                                                        {% if tarefa.prioridade == "media" %} yellow {% endif %}
                                                        {% if tarefa.prioridade == "alta" %} red {% endif %}
@@ -40,6 +51,7 @@
                                                        {% if request.user.profile.tema == 'N' %} darken-4 white-text {% endif %}"
                                                 style="text-align: center; width: 20%"> {{ tarefa.prioridade }} </td>
                                             <td style="text-align: center; width: 20%"> {{ tarefa.data_limite }} </td>
+                                            <td style="width: 5%"><a href="{% url 'concluir_tarefa' pk=tarefa.pk %}" class="secondary-content {% if request.user.profile.tema == 'N' %} white-text {% endif %}" style="margin-right: 60%;"><i class="material-icons">{% if not tarefa.concluido %}check_box_outline_blank{% endif %} {% if tarefa.concluido %} check {% endif %}</i></a></td>
                                             <td style="width: 5%"><a href="{% url 'tarefa_editar' pk=tarefa.pk %}" class="secondary-content {% if request.user.profile.tema == 'N' %} white-text {% endif %}" style="margin-right: 20%;"><i class="material-icons">send</i></a></td>
                                         </tr>
                                             {% endif %}

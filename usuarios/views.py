@@ -340,6 +340,20 @@ def tarefa_editar(request, pk, template_name="tarefa_editar.html"):
     context = {'membro_list': membro, 'categoria_list': categoria, 'projeto': projeto, 'tarefa':tarefa, 'data_limite_tratada':data_limite_tratada}
     return render(request, template_name, context)
 
+
+@login_required
+def concluir_tarefa(request, pk):
+    try:
+        tarefa = Tarefa.objects.get(pk=pk)
+    except:
+        messages.error(request, "Tarefa não encontrada!")
+        return redirect('/projeto_lista/')
+
+    tarefa.concluido = not(tarefa.concluido)
+    tarefa.save()
+    return redirect('/visao_projeto/' + tarefa.projeto.id.__str__())
+
+
 @login_required
 def tarefa_delete(request):
     if request.method == "POST":
@@ -394,6 +408,26 @@ def requisito_delete(request):
 def projeto_visao(request, pk, template_name="visao_projeto.html"):
     tarefas = Tarefa.objects.filter(projeto_id=pk)
     categoria = Categoria.objects.all()
+
+    for item in categoria:
+        count_total = 0
+        count_concluido = 0
+
+        for tarefa in tarefas:
+            if item.id == tarefa.categoria.id:
+                count_total += 1
+                if tarefa.concluido:
+                    count_concluido += 1
+
+        if count_total == 0:
+            item.porcentagem = -1
+        else:
+            if count_concluido == 0:
+                item.porcentagem = 0
+            else:
+                percent = 100 * (count_concluido/count_total)
+                item.porcentagem = percent
+
 
     try:
         projeto = Projeto.objects.get(pk=pk)

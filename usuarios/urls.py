@@ -26,5 +26,6 @@ urlpatterns = [
     url(r'^requisito_delete/$', requisito_delete, name='requisito_delete'),
     url(r'^redefinicao_senha_admin/$', redefinicao_senha_admin, name='redefinicao_senha_admin'),
     url(r'^redefinicao_senha/$', redefinicao_senha, name='redefinicao_senha'),
-    url(r'^esqueceu_senha/$', esqueceu_senha, name='esqueceu_senha')
+    url(r'^esqueceu_senha/$', esqueceu_senha, name='esqueceu_senha'),
+    url(r'^concluir_tarefa/(?P<pk>[0-9]+)', concluir_tarefa, name='concluir_tarefa')
 ]
