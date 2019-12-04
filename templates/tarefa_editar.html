@@ -88,23 +88,23 @@
         </form>
     </div>
 
-    <div id="modal1" class="modal">
+    <div id="modal1" class="modal {% if request.user.profile.tema == 'N' %} blue-grey darken-4 blue-grey-text text-lighten-3 {% endif %}">
         <div class="modal-content">
             <h4> Apagar Tarefa </h4>
             <p>Tem certeza que deseja excluir a Tarefa "{{ tarefa.titulo }}"?</p>
         </div>
 
-        <div class="modal-footer">
+        <div class="modal-footer {% if request.user.profile.tema == 'N' %} blue-grey darken-4 {% endif %}">
             <div class="row">
                 <div class="col s4"></div>
                 <div class="col s4">
-                    <button href="#!" class="modal-close waves-effect waves-green btn-flat">Cancelar</button>
+                    <button href="#!" class="modal-close waves-effect waves-green btn-flat {% if request.user.profile.tema == 'N' %} blue-grey-text text-lighten-3 {% endif %}">Cancelar</button>
                 </div>
                 <div class="col s4">
                     <form method="post" action="{% url 'tarefa_delete' %}"> {% csrf_token %}
                         <input type="hidden" name="pk" value="{{ tarefa.pk }}">
                         <input type="hidden" name="projeto" value="{{ projeto.pk }}">
-                        <button type="submit" class="waves-effect waves-green btn-flat red darken-2" style="position:relative; left: -20px">Deletar</button>
+                        <button type="submit" class="waves-effect waves-green btn-flat red darken-2 white-text" style="position:relative; left: -20px">Deletar</button>
                     </form>
                 </div>
             </div>

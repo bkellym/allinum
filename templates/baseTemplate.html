@@ -26,8 +26,14 @@
                                     {% if request.user.profile.tema == 'N' %}
                                         blue-grey darken-4
                                     {% endif %}">
-		      	<a href="{% url 'projeto_lista' %}" style="margin-left: 40px; color:#FFFFFF;"> <img src = "{% static 'usuarios/logos/Logo_V_C.png' %}"
-	      		style = "height: 40px; margin-top: 1%;"/> </a>
+		      	<a href="{% url 'projeto_lista' %}" style="margin-left: 40px; color:#FFFFFF;">
+                    {% if request.user.profile.tema == 'C' %}
+                        <img src = "{% static 'usuarios/logos/Logo_C.png' %}" style = "height: 40px; margin-top: 1%;"/>
+                    {% endif %}
+                    {% if request.user.profile.tema == 'N' %}
+                        <img src = "{% static 'usuarios/logos/Logo_N.png' %}" style = "height: 40px; margin-top: 1%;"/>
+                    {% endif %}
+                </a>
 
 		      	<ul id="nav-mobile" class="right">
 

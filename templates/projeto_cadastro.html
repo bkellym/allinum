@@ -37,10 +37,8 @@
 			</div>
 
             <div class = "row">
-				<div class="col s12">
-					<label for="id_membros">Membros:</label>
-
-					<select name="membros" id="id_membros" multiple>
+				<div class="col s12 input-field ">
+					<select multiple name="membros">
                         <option value="" disabled> </option>
 					  	{% for membro in membro_list %}
                             {% if membro.user.id != request.user.id %}
@@ -48,6 +46,7 @@
                             {% endif %}
                         {% endfor %}
 					</select>
+                <label >Membros:</label>
 				</div>
 			</div>
 

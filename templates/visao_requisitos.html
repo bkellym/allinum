@@ -15,7 +15,7 @@
     <div class = "row" style="margin-top:10px;">
         <div class = "col s4" style="width: 30%; margin-left: 1%;">
             <div class = "row">
-                <div class = "col s12" style = "background: #4fc3f7; min-height: 30%; border-radius: 20px;">
+                <div class = "col s12 light-blue {% if request.user.profile.tema == 'C' %} lighten-2 {% endif %}  {% if request.user.profile.tema == 'N' %} darken-4 blue-grey-text text-lighten-4 {% endif %}" style = "min-height: 30%; border-radius: 20px;">
                     <h5 style="font-size: 16pt; text-align: center;"> Interfaces com Usuário </h5>
                     {% if projeto.lider.id == request.user.id %}
                     <div class="row">
@@ -47,7 +47,7 @@
                 </div>
             </div>
             <div class = "row">
-                <div class = "col s12" style = "background: #4fc3f7; min-height: 30%; border-radius: 20px;">
+                <div class = "col s12 light-blue {% if request.user.profile.tema == 'C' %} lighten-2 {% endif %}  {% if request.user.profile.tema == 'N' %} darken-4 blue-grey-text text-lighten-4 {% endif %}" style = "min-height: 30%; border-radius: 20px;">
                     <h5 style="font-size: 16pt; text-align: center;"> Entradas </h5>
                     {% if projeto.lider.id == request.user.id %}
                     <div class="row">
@@ -81,7 +81,7 @@
         </div>
         <div class = "col s4" style="width: 30%; margin-left: 1%;">
             <div class = "row">
-                <div class = "col s12" style = "background: #4fc3f7; min-height: 30%; border-radius: 20px;">
+                <div class = "col s12 light-blue {% if request.user.profile.tema == 'C' %} lighten-2 {% endif %}  {% if request.user.profile.tema == 'N' %} darken-4 blue-grey-text text-lighten-4 {% endif %}" style = "min-height: 30%; border-radius: 20px;">
                     <h5 style="font-size: 16pt; text-align: center;"> Arquitetura/conhecimento Bibliotecas </h5>
                     {% if projeto.lider.id == request.user.id %}
                     <div class="row">
@@ -113,7 +113,7 @@
                 </div>
             </div>
             <div class = "row">
-                <div class = "col s12" style = "background: #4fc3f7; min-height: 30%; border-radius: 20px;">
+                <div class = "col s12 light-blue {% if request.user.profile.tema == 'C' %} lighten-2 {% endif %}  {% if request.user.profile.tema == 'N' %} darken-4 blue-grey-text text-lighten-4 {% endif %}" style = "min-height: 30%; border-radius: 20px;">
                     <h5 style="font-size: 16pt; text-align: center;"> Conectividade/M2M </h5>
                     {% if projeto.lider.id == request.user.id %}
                     <div class="row">
@@ -147,7 +147,7 @@
         </div>
         <div class = "col s4" style="width: 30%; margin-left: 1%;">
             <div class = "row">
-                <div class = "col s12" style = "background: #4fc3f7; min-height: 30%; border-radius: 20px;">
+                <div class = "col s12 light-blue {% if request.user.profile.tema == 'C' %} lighten-2 {% endif %}  {% if request.user.profile.tema == 'N' %} darken-4 blue-grey-text text-lighten-4 {% endif %}" style = "min-height: 30%; border-radius: 20px;">
                     <h5 style="font-size: 16pt; text-align: center;"> Funcionalidade/Função </h5>
                     {% if projeto.lider.id == request.user.id %}
                     <div class="row">
@@ -179,7 +179,7 @@
                 </div>
             </div>
             <div class = "row">
-                <div class = "col s12" style = "background: #4fc3f7; min-height: 30%; border-radius: 20px;">
+                <div class = "col s12 light-blue {% if request.user.profile.tema == 'C' %} lighten-2 {% endif %}  {% if request.user.profile.tema == 'N' %} darken-4 blue-grey-text text-lighten-4 {% endif %}" style = "min-height: 30%; border-radius: 20px;">
                     <h5 style="font-size: 16pt; text-align: center;"> Saídas </h5>
                     {% if projeto.lider.id == request.user.id %}
                     <div class="row">
