@@ -20,7 +20,7 @@
             <div class = "row">
 				<div class="col s12">
 					<label for="id_titulo"> Titulo: </label>
-					<input id="id_titulo" name="titulo" maxlength="100" value="{{ projeto.titulo }}" required/>
+					<input id="id_titulo" name="titulo" minlength="5" maxlength="100" value="{{ projeto.titulo }}" required/>
 				</div>
 			</div>
 
@@ -32,7 +32,7 @@
 
 			<div class = "row">
 				<div class="col s12">
-					<textarea name="descricao" cols="40" rows="10" maxlength="400" required> {{ projeto.descricao }} </textarea>
+					<textarea name="descricao" cols="40" rows="10" minlength="15" maxlength="400" required> {{ projeto.descricao }} </textarea>
 				</div>
 			</div>
 
@@ -43,7 +43,7 @@
 					<select name="membros" id="id_membros" multiple>
                         <option value="" disabled> </option>
 					  	{% for membro in membro_list %}
-                            {% if membro.user.id != request.user.id %}
+                            {% if membro.user.id != request.user.id and not membro.user.is_superuser %}
                             <option value="{{ membro.id }}"> {{ membro.user.username }} </option>
                             {% endif %}
                         {% endfor %}
