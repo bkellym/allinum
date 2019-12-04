@@ -30,7 +30,7 @@
                     <tr>
                         <td> <a href="{% url 'visao_projeto' pk=projeto.pk %}"> {{ projeto.titulo }} </a> </td>
                         <td> {{ projeto.descricao }} </td>
-                        <td> {{ projeto.ult_alt }} </td>
+                        <td> {{ projeto.ult_alt }} em {{ projeto.data_ult_alt }} </td>
                         {% if projeto.lider == request.user or user.is_superuser %}
                         <td>
                             <a href="{% url 'projeto_editar' pk=projeto.pk %}">

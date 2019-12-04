@@ -186,7 +186,7 @@ def redefinicao_senha(request):
         confirma_senha = request.POST['confirma_senha']
 
         if senha == confirma_senha:
-            user.password = senha
+            user.set_password(senha)
             user.save()
             return redirect('/usuario_configuracao/')
         else:
@@ -286,7 +286,7 @@ def projeto_lista(request, template_name="projeto_lista.html"):
 class TarefaForm(ModelForm):
     class Meta:
         model = Tarefa
-        fields = ['titulo', 'resp', 'projeto', 'categoria', 'prioridade']
+        fields = ['titulo', 'resp', 'projeto', 'categoria', 'prioridade', 'data_limite']
 
 
 def tarefa_cadastro(request, pk, template_name="tarefa_cadastro.html"):
@@ -302,6 +302,10 @@ def tarefa_cadastro(request, pk, template_name="tarefa_cadastro.html"):
     tarefa = TarefaForm(request.POST or None)
     if tarefa.is_valid():
         tarefa.save()
+
+        projeto.ult_alt = request.user.username  # Salva ultima pessoa que alterou o projeto
+        projeto.data_ult_alt = date.today()
+        projeto.save()
 
         # Redirecionamento
         return redirect('/visao_projeto/' + pk)
@@ -320,14 +324,20 @@ def tarefa_editar(request, pk, template_name="tarefa_editar.html"):
 
     membro = projeto.membros.all()
     categoria = Categoria.objects.all()
+    data_limite_tratada = tarefa.data_limite.strftime('%Y-%m-%d')
 
     if request.method == "POST":
         form = TarefaForm(request.POST, instance=tarefa)
         if form.is_valid():
             tarefa.save()
+
+            projeto.ult_alt = request.user.username  # Salva ultima pessoa que alterou o projeto
+            projeto.data_ult_alt = date.today()
+            projeto.save()
+
             return redirect('/visao_projeto/' + projeto.id.__str__())
 
-    context = {'membro_list': membro, 'categoria_list': categoria, 'projeto': projeto, 'tarefa':tarefa}
+    context = {'membro_list': membro, 'categoria_list': categoria, 'projeto': projeto, 'tarefa':tarefa, 'data_limite_tratada':data_limite_tratada}
     return render(request, template_name, context)
 
 @login_required
@@ -343,6 +353,12 @@ def tarefa_delete(request):
 
         if request.method == "POST":
                 tarefa.delete()
+
+                projeto = Projeto.objects.get(pk=projeto_pk)
+                projeto.ult_alt = request.user.username  # Salva ultima pessoa que alterou o projeto
+                projeto.data_ult_alt = date.today()
+                projeto.save()
+
                 return redirect('/visao_projeto/' + projeto_pk)
 
 

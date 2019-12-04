@@ -51,7 +51,7 @@
 			</div>
 
             <div class = "row">
-				<div class="col s12">
+				<div class="col s6">
 					<label for="id_prioridade"> Prioridade: </label>
                     <select name = "prioridade" id="id_prioridade" required>
                         <option value = "" disabled selected> Escolha uma opção </option>
@@ -60,12 +60,16 @@
                         <option value = "alta"> Alta </option>
                     </select>
 				</div>
+                <div class="col s6">
+					<label for="id_data_limite"> Data: </label>
+                    <input type="date" id="id_data_limite" name="data_limite">
+				</div>
 			</div>
 
             <div class="row">
                 <div class="input-field col s3">
                     <button class="btn waves-effect waves-light blue-grey lighten-4">
-                        <a href=" {% url 'usuario_lista' %}" class="black-text text-lighten-5">Cancelar</a>
+                        <a href=" {% url 'visao_projeto' pk=projeto.pk %}" class="black-text text-lighten-5">Cancelar</a>
                     </button>
                 </div>
 

@@ -51,7 +51,7 @@
 			</div>
 
             <div class = "row">
-				<div class="col s12">
+				<div class="col s6">
 					<label for="id_prioridade"> Prioridade: </label>
                     <select name = "prioridade" id="id_prioridade" required>
                         <option value = "" disabled> Escolha uma opção </option>
@@ -59,6 +59,10 @@
                         <option value = "media" {% if "media" == tarefa.prioridade %} selected {% endif %}> Média </option>
                         <option value = "alta" {% if "alta" == tarefa.prioridade %} selected {% endif %}> Alta </option>
                     </select>
+				</div>
+                <div class="col s6">
+					<label for="id_data_limite"> Data: </label>
+                    <input type="date" id="id_data_limite" name="data_limite" value="{{data_limite_tratada}}">
 				</div>
 			</div>
 

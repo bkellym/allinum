@@ -4,11 +4,9 @@
     <list default="true" id="16b2e94c-a022-4a39-bf31-6c9a961aad61" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/usuario_configuracao.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/usuario_configuracao.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/usuario_editar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/usuario_editar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/usuario_lista.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/usuario_lista.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usuarios/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/projeto_lista.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/projeto_lista.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/tarefa_cadastro.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/tarefa_cadastro.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/tarefa_editar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/tarefa_editar.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/usuarios/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -110,7 +108,7 @@
       <workItem from="1574952459597" duration="28494000" />
       <workItem from="1574996371050" duration="7957000" />
       <workItem from="1575084897158" duration="506000" />
-      <workItem from="1575470606383" duration="4056000" />
+      <workItem from="1575470606383" duration="7839000" />
     </task>
     <servers />
   </component>
