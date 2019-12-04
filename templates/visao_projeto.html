@@ -79,7 +79,7 @@
             <li><a class="btn-floating blue darken-1" href="{% url 'visao_projeto' pk=projeto.pk %}"><i class="material-icons">insert_chart</i></a></li>
         {% endif %}
         <li><a class="btn-floating yellow darken-2" href="{% url 'visao_requisito' pk=projeto.pk %}"><i class="material-icons">format_list_bulleted</i></a></li>
-          {% if projeto.lider.pk == request.user.pk %}
+          {% if projeto.lider.pk == request.user.pk or request.user.is_superuser %}
         <li><a class="btn-floating red darken-2" href="{% url 'projeto_editar' pk=projeto.pk %}"><i class="material-icons">settings</i></a></li>
           {% endif %}
       </ul>
