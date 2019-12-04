@@ -34,17 +34,16 @@
             </p>
 
             <p>
-                <label>
-                    <input class="with-gap" name="tema" value="C" type="radio" disabled/>
-                    <span> Modo Alto Contraste </span>
-                </label>
-            </p>
-
-            <p>
               <label>
                 <input type="checkbox" name="fontes_grandes" class="filled-in" disabled/>
                 <span> Fontes Grandes </span>
               </label>
+            </p>
+
+            <p>
+                <label>
+                    <a href="#modal2"> Redefinir minha senha </a>
+                </label>
             </p>
 
             <div class="row">
@@ -73,4 +72,37 @@
         <div class = "col s2">	</div>
     </div>
     {% endif %}
+
+
+    <div id="modal2" class="modal">
+        <form method="post" action="{% url 'redefinicao_senha' %}"> {% csrf_token %}
+
+        <div class="modal-content">
+            <h4> Redefinir minha senha: </h4>
+
+                <label for="id_senha_antiga"> Senha Atual: </label>
+                <input id="id_senha_antiga" name="senha_antiga" type="password" class="validate" required>
+
+                <label for="id_senha"> Senha: </label>
+                <input id="id_senha" name="senha" type="password" class="validate" required>
+
+                <label for="id_confirma_senha"> Confirma Senha: </label>
+                <input id="id_confirma_senha" name="confirma_senha" type="password" class="validate" required>
+        </div>
+
+        <div class="modal-footer">
+            <div class="row">
+                <div class="col s4"></div>
+                <div class="col s4">
+                        <button type="submit" class="waves-effect waves-green btn-flat green darken-1">Confirmar</button>
+                </div>
+                <div class="col s4">
+                    <button href="{% url 'usuario_configuracao' %}" class="modal-close waves-effect waves-green btn-flat">Cancelar</button>
+                </div>
+            </div>
+        </div>
+
+        </form>
+    </div>
+
 {% endblock conteudo %}

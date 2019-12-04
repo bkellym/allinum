@@ -23,5 +23,8 @@ urlpatterns = [
     url(r'^visao_projeto_tarefa/(?P<pk>[0-9]+)', tarefas_do_usuario_projeto, name='visao_projeto_tarefa'),
     url(r'^visao_requisito/(?P<pk>[0-9]+)', visao_requisitos, name='visao_requisito'),
     url(r'^requisito_cadastro/$', requisito_cadastro, name='requisito_cadastro'),
-    url(r'^requisito_delete/$', requisito_delete, name='requisito_delete')
+    url(r'^requisito_delete/$', requisito_delete, name='requisito_delete'),
+    url(r'^redefinicao_senha_admin/$', redefinicao_senha_admin, name='redefinicao_senha_admin'),
+    url(r'^redefinicao_senha/$', redefinicao_senha, name='redefinicao_senha'),
+    url(r'^esqueceu_senha/$', esqueceu_senha, name='esqueceu_senha')
 ]

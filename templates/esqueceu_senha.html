@@ -1,0 +1,48 @@
+{% extends 'baseLogin.html' %}
+
+<!-- Title da Página -->
+{% block title %}
+    Allinum .:. Esqueceu a Senha
+{% endblock title %}
+
+<!-- Cor de fundo da página -->
+{% block backgroundColor %}
+    #64FFDA
+{% endblock backgroundColor %}
+
+<!-- Cor do Quadro da página -->
+{% block quadroBlock %}
+    #FFFFFF
+{% endblock quadroBlock %}
+
+<!-- Conteúdo da Página -->
+{% block conteudo %}
+    <div class="row">
+
+        <div class="col s1">  </div>
+
+        <div class="col s10">
+
+            <h5> Recuperar Senha </h5>
+            <p> Entre em contato com algum adminstrador do sistema e solicite para que altere sua senha </p>
+
+        </div>
+
+        <div class="col s1">  </div>
+
+    </div>
+
+    <div class="row">
+        <div class = "col s4"> </div>
+
+        <div class="input-field col s4">
+            <a href="{% url 'login' %}">
+                <button class="btn waves-effect waves-light" style="width: 100%;">
+                     Voltar
+                </button>
+            </a>
+        </div>
+
+        <div class = "col s4"> </div>
+    </div>
+{% endblock conteudo %}
