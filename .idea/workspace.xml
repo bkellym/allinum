@@ -20,9 +20,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="16b2e94c-a022-4a39-bf31-6c9a961aad61" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuarios/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuarios/migrations/0002_auto_20191126_1938.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuarios/migrations/0003_projeto.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuarios/migrations/0004_auto_20191127_0144.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuarios/migrations/0005_projeto_ult_alt.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuarios/migrations/0006_projeto_data_ult_alt.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuarios/migrations/0007_auto_20191127_1647.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuarios/migrations/0008_auto_20191127_1704.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuarios/migrations/0009_auto_20191127_1711.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuarios/migrations/0010_tarefa.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuarios/migrations/0011_tarefa_projeto.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuarios/migrations/0012_categoria.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuarios/migrations/0013_tarefa_categoria.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuarios/migrations/0014_requisito.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
