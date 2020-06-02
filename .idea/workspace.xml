@@ -20,23 +20,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="16b2e94c-a022-4a39-bf31-6c9a961aad61" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/usuarios/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/usuarios/migrations/0002_auto_20191126_1938.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/usuarios/migrations/0003_projeto.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/usuarios/migrations/0004_auto_20191127_0144.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/usuarios/migrations/0005_projeto_ult_alt.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/usuarios/migrations/0006_projeto_data_ult_alt.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/usuarios/migrations/0007_auto_20191127_1647.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/usuarios/migrations/0008_auto_20191127_1704.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/usuarios/migrations/0009_auto_20191127_1711.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/usuarios/migrations/0010_tarefa.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/usuarios/migrations/0011_tarefa_projeto.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/usuarios/migrations/0012_categoria.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/usuarios/migrations/0013_tarefa_categoria.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/usuarios/migrations/0014_requisito.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppAllinum/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/AppAllinum/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppAllinum/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/AppAllinum/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuarios/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuarios/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuarios/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuarios/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/migrations/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuarios/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuarios/static/usuarios/icons/configuracoes.png" beforeDir="false" afterPath="$PROJECT_DIR$/core/static/usuarios/icons/configuracoes.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuarios/static/usuarios/icons/notificacoes.png" beforeDir="false" afterPath="$PROJECT_DIR$/core/static/usuarios/icons/notificacoes.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuarios/static/usuarios/icons/projetos.png" beforeDir="false" afterPath="$PROJECT_DIR$/core/static/usuarios/icons/projetos.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuarios/static/usuarios/icons/sair.png" beforeDir="false" afterPath="$PROJECT_DIR$/core/static/usuarios/icons/sair.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuarios/static/usuarios/icons/tarefas.png" beforeDir="false" afterPath="$PROJECT_DIR$/core/static/usuarios/icons/tarefas.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuarios/static/usuarios/logos/Logo_C.png" beforeDir="false" afterPath="$PROJECT_DIR$/core/static/usuarios/logos/Logo_C.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuarios/static/usuarios/logos/Logo_H_C.png" beforeDir="false" afterPath="$PROJECT_DIR$/core/static/usuarios/logos/Logo_H_C.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuarios/static/usuarios/logos/Logo_H_N.png" beforeDir="false" afterPath="$PROJECT_DIR$/core/static/usuarios/logos/Logo_H_N.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuarios/static/usuarios/logos/Logo_N.png" beforeDir="false" afterPath="$PROJECT_DIR$/core/static/usuarios/logos/Logo_N.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuarios/static/usuarios/logos/Logo_V_C.png" beforeDir="false" afterPath="$PROJECT_DIR$/core/static/usuarios/logos/Logo_V_C.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuarios/static/usuarios/logos/Logo_V_N.png" beforeDir="false" afterPath="$PROJECT_DIR$/core/static/usuarios/logos/Logo_V_N.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuarios/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuarios/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuarios/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,6 +79,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="run.code.analysis.last.selected.profile" value="aDefault" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
@@ -146,6 +152,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="427" y="218" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1591137163297">
+      <screen x="0" y="0" width="1360" height="728" />
+    </state>
+    <state x="427" y="218" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/-1366.-51.1366.728/0.0.1360.728@0.0.1360.728" timestamp="1591137163297" />
     <state x="201" y="17" key="SettingsEditor" timestamp="1591135651498">
       <screen x="0" y="0" width="1360" height="728" />
     </state>
