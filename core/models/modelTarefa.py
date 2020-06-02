@@ -1,7 +1,7 @@
 from django.db import models
-from .membro import Membro
-from .projeto import Projeto
-from .categoria import Categoria
+from .modelMembro import Membro
+from .modelProjeto import Projeto
+from .modelCategoria import Categoria
 
 
 class Tarefa(models.Model):

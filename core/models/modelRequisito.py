@@ -1,6 +1,6 @@
 from django.db import models
-from .categoria import Categoria
-from .projeto import Projeto
+from .modelCategoria import Categoria
+from .modelProjeto import Projeto
 
 
 class Requisito(models.Model):
